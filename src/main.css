@@ -29,16 +29,8 @@ body {
     @apply hover-blackout px-4 py-2 rounded-full bg-[#eadd0a] text-[#3f3c03]
 }
 
-.link {
-    @apply text-aqua underline underline-offset-1 whitespace-nowrap
-}
-
 input  {
     @apply block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue
-}
-
-a {
-    @apply hover-blackout
 }
 
 hr {
