@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 html {
-    color: white;
-    font-family: 'Rubik', sans-serif;
-    text-align: center;
     height: 1px;
     min-height: 100%;
-    @apply text-[16px]
+
+    font-family: 'Rubik', sans-serif;
+    font-size: clamp(16px, calc(1rem + ((1vw - 8px) * 0.6944)), 24px);
+    text-align: center;
+    color: white;
 }
 
 body {
