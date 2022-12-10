@@ -8,25 +8,13 @@ html {
     text-align: center;
     height: 1px;
     min-height: 100%;
-    @apply text-[18px] sm:text-[18px] md:text-[20px] lg:text-[24px]
+    @apply text-[16px]
 }
 
 body {
     height: inherit;
     min-height: inherit;
     padding-right: 0 !important;
-}
-
-.hover-blackout {
-    @apply transition-[filter] hover:brightness-90
-}
-
-.btn {
-    @apply hover-blackout px-4 py-2 rounded-full bg-green border-2 border-white
-}
-
-.btn-yellow {
-    @apply hover-blackout px-4 py-2 rounded-full bg-[#eadd0a] text-[#3f3c03]
 }
 
 input  {
@@ -38,14 +26,7 @@ hr {
 }
 
 .container {
-    width: 70%;
-}
-
-@media (max-width: 1160px) {
-    .container {
-        width: 100%;
-        max-width: 100%;
-    }
+    @apply w-full lg:w-[70%]
 }
 
 .gradient {
