@@ -38,7 +38,7 @@ const router = createRouter({
 		},
 		{
 			path: '/download.html',
-			component: () => import('@/views/ExtensionsView.vue'),
+			component: () => import('@/views/DownloadView.vue'),
 			meta: {
 				title: 'Сервисы автоматизированного решения ДЗ',
 			},

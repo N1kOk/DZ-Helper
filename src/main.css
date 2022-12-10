@@ -27,12 +27,7 @@ hr {
 }
 
 .container {
-    @apply w-full lg:w-[70%]
-}
-
-.gradient {
-    background: rgb(74, 216, 255);
-    background: linear-gradient(45deg, rgba(74, 216, 255, 1) 0%, rgba(30, 154, 252, 1) 100%);
+    @apply w-[95%] lg:w-[70%]
 }
 
 #header__menu-toggle:checked ~ .header__links {

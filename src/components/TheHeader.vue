@@ -73,7 +73,7 @@ import IconUser from '@/components/icons/IconUser.vue'</script>
 <style scoped lang="scss">
 .header {
 	@apply
-	fixed w-full min-h-[70px] px-3 py-1 flex bg-blue shadow-xl z-50
+	fixed w-full min-h-[4rem] px-3 py-1 flex bg-blue shadow-xl z-50
 	lg:px-[50px];
 
 	&__nav {
@@ -90,7 +90,7 @@ import IconUser from '@/components/icons/IconUser.vue'</script>
 
 	&__links {
 		@apply
-		max-lg:absolute left-0 top-[70px] w-full max-lg:pb-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium bg-inherit
+		max-lg:absolute left-0 top-16 w-full max-lg:pb-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium bg-inherit
 		transition-transform will-change-transform max-lg:scale-y-0 origin-top
 
 		lg:w-max lg:my-auto lg:justify-end lg:space-x-4;

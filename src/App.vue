@@ -1,9 +1,9 @@
 <template>
-	<div class="flex overflow-hidden flex-col min-h-full">
+	<div class="flex flex-col min-h-screen overflow-hidden">
 		<TheHeader/>
-		<main class="gradient min-h-[calc(100vh-140px)] pt-[70px] ">
-			<section class="bg-black/30 min-h-[inherit]">
-				<div class="container flex flex-col justify-evenly p-4 py-8 mx-auto space-y-4 min-h-[inherit]">
+		<main class="flex flex-1 pt-16 bg-[#37bdfe]">
+			<section class="flex-1 bg-black/30">
+				<div class="container flex flex-col min-h-full py-12 mx-auto space-y-12">
 					<RouterView/>
 				</div>
 			</section>

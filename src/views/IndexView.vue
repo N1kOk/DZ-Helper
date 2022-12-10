@@ -1,30 +1,43 @@
 <template>
-	<div>
-		<h1 class="mb-5 text-3xl font-bold">Автоматизированное решение ДЗ</h1>
-		<span>Наш сервис поможет вам просто и максимально быстро выполнить любые задания на сайтах, и сэкономит много времени.</span>
+	<div class="space-y-4">
+		<h1 class="text-3xl font-bold">Автоматическое выполнение заданий</h1>
+		<p>
+			С нашими расширениями для браузера вы легко сможете выполнить любое задание на сайтах
+			и всегда получать хорошие оценки за домашние задания.
+		</p>
 	</div>
-	<div
-		class="flex flex-wrap justify-evenly items-top -m-3 [&_.text]:font-medium [&_.text]:text-medium [&_.text]:leading-none [&>*]:flex [&>*]:flex-2 [&>*]:flex-col [&>*]:p-3 [&_.icon]:text-[5rem] sm:[&>*]:flex-1">
-		<div>
-			<span class="icon material-symbols-rounded before:content-['\ea0b']"></span>
-			<span class="text">Автоматический<br>поиск ответов</span>
+	<div class="flex flex-wrap justify-evenly items-top gap-4">
+		<div class="leading-none">
+			<IconLightning class="w-[5rem] mx-auto"/>
+			<span>Быстрый поиск<br>ответов</span>
 		</div>
-		<div>
-			<span class="icon material-symbols-rounded before:content-['\eb9b']"></span>
-			<span class="text">Высокая скорость<br>работы</span>
+		<div class="leading-none">
+			<IconRocket class="w-[5rem] mx-auto"/>
+			<span>Высокая скорость<br>работы</span>
 		</div>
-		<div>
-			<span class="icon material-symbols-rounded before:content-['\e39e']"></span>
-			<span class="text">Автоматическое исправление<br>ошибок</span>
+		<div class="leading-none">
+			<IconTarget class="w-[5rem] mx-auto"/>
+			<span>Абсолютная<br>грамотность</span>
 		</div>
-		<div>
-			<span class="icon material-symbols-rounded before:content-['\e8dc']"></span>
-			<span class="text">Лёгкость в<br>использовании</span>
+		<div class="leading-none">
+			<IconLike class="w-[5rem] mx-auto"/>
+			<span>Лёгкость в<br>использовании</span>
 		</div>
 	</div>
 
-	<RouterLink to="/services"
-	            class="btn inline-block mx-auto mt-3 w-max rounded-full bg-green text-sm tracking-[1px]">
-		Перейти к сервисам
-	</RouterLink>
+	<AppButton
+		class="mx-auto tracking-[1px]"
+		to="/download.html"
+		color="green"
+		size="xl"
+	>
+		Перейти к расширениям
+	</AppButton>
 </template>
+<script setup lang="ts">
+import IconLightning from '@/components/icons/IconLightning.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconTarget from '@/components/icons/IconTarget.vue'
+import IconLike from '@/components/icons/IconLike.vue'
+import AppButton from '@/components/AppButton.vue'
+</script>
