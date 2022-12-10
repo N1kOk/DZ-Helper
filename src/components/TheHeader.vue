@@ -16,37 +16,37 @@
 			</label>
 
 			<div class="header__links">
-				<AppButton to="/vklogin.php" is-external-link>
+				<AppButton class="!hidden max-lg:mb-2" to="/vklogin.php" is-external-link>
 					<IconLogin class="w-4 mr-1"/>
 					<span>Авторизоваться</span>
 				</AppButton>
-				<AppButton class="!hidden">
+				<AppButton class="max-lg:mb-2">
 					<IconLogout class="w-4 mr-1"/>
 					<span>Выйти</span>
 				</AppButton>
-				<AppLink class="!hidden" to="/user.php">
+				<AppLink class="max-lg:p-2" to="/user.php">
 					<IconUser class="w-4 mr-1"/>
 					<span>Кабинет</span>
 				</AppLink>
 
-				<AppLink to="/stock.html">
+				<AppLink class="max-lg:p-2" to="/stock.html">
 					<IconCursor class="w-4 mr-1"/>
 					<span>Акции</span>
 				</AppLink>
 
 				<div class="group relative flex-col py-2">
-					<div class="flex items-center cursor-pointer">
+					<div class="flex items-center cursor-pointer py-2">
 						<IconInfo class="min-w-[1rem] mr-1"/>
 						<span>Расширения</span>
 						<IconArrowDown class="min-w-[1rem]"/>
 					</div>
 					<div class="header__extensions">
-						<AppLink to="/webgramotei.html">Веб-Грамотей+</AppLink>
-						<AppLink to="/reshu.html">РешуОГЭ/ЕГЭ+</AppLink>
-						<AppLink to="/yaklass.html">ЯКласс+</AppLink>
-						<AppLink to="/uchiru.html">Учи.Ру+</AppLink>
-						<AppLink to="/uztest.html">UzTest+</AppLink>
-						<AppLink to="/resh.html">РЭШ+</AppLink>
+						<AppLink class="p-1" to="/webgramotei.html">Веб-Грамотей+</AppLink>
+						<AppLink class="p-1" to="/reshu.html">РешуОГЭ/ЕГЭ+</AppLink>
+						<AppLink class="p-1" to="/yaklass.html">ЯКласс+</AppLink>
+						<AppLink class="p-1" to="/uchiru.html">Учи.Ру+</AppLink>
+						<AppLink class="p-1" to="/uztest.html">UzTest+</AppLink>
+						<AppLink class="p-1" to="/resh.html">РЭШ+</AppLink>
 					</div>
 				</div>
 
@@ -90,16 +90,18 @@ import IconUser from '@/components/icons/IconUser.vue'</script>
 
 	&__links {
 		@apply
-		absolute w-full left-0 top-[70px] pb-5 flex flex-col items-center flex-wrap text-sm font-medium bg-inherit
-		transition-transform will-change-transform scale-y-0 origin-top
+		max-lg:absolute left-0 top-[70px] w-full max-lg:pb-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium bg-inherit
+		transition-transform will-change-transform max-lg:scale-y-0 origin-top
 
-		lg:static lg:w-max lg:p-0 lg:my-auto lg:flex-row lg:justify-end lg:space-x-4
-		lg:scale-y-100;
+		lg:w-max lg:my-auto lg:justify-end lg:space-x-4;
 	}
 
 	&__extensions {
 		@apply
-		group-hover:scale-y-100 lg:absolute lg:scale-y-0 top-[50px] left-0 flex flex-col p-2 rounded-b-2xl lg:space-y-1 space-y-2 origin-top transition-transform bg-blue will-change-transform text-[0.9em] w-full;
+		w-full  p-2 flex flex-col space-y-2 text-[0.9em] bg-blue rounded-b-2xl
+		group-hover:scale-y-100 transition-transform origin-top will-change-transform
+		lg:absolute lg:space-y-1 lg:left-0 lg:top-12
+		lg:scale-y-0;
 	}
 }
 </style>
