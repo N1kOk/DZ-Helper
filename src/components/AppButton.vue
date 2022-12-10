@@ -50,6 +50,6 @@ const classes = computed(() => ({
 }
 
 .button:hover:before {
-	@apply opacity-25
+	@apply opacity-10
 }
 </style>
