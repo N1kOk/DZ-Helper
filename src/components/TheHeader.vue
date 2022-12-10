@@ -22,23 +22,28 @@
 				class="header__links text-sm md:text-[16px] transition-transform will-change-transform [transform:scaleY(0)] origin-top absolute top-[70px] left-0 flex flex-wrap flex-col items-center w-full pb-5 bg-inherit md:static md:flex-row md:justify-end md:scale-y-100 md:p-0 md:my-auto md:space-x-4 md:w-max font-medium [&>*:not(:last-child)]:min-w-full md:[&>*]:!min-w-max"
 			>
 				<AppButton to="/vklogin.php" is-external-link>
-					<span class="material-symbols-rounded before:content-['\ea77'] mr-[5px]"></span>
+					<IconLogin class="w-4 mr-1"/>
 					<span>Авторизоваться</span>
 				</AppButton>
-
-				<AppLink class="!hidden" id="cabinet" to="/user.php">
-					<span class="material-symbols-rounded before:content-['\e7fd'] mr-[5px]"></span>
+				<AppButton class="!hidden">
+					<IconLogout class="w-4 mr-1"/>
+					<span>Выйти</span>
+				</AppButton>
+				<AppLink class="!hidden" to="/user.php">
+					<IconUser class="w-4 mr-1"/>
 					<span>Кабинет</span>
 				</AppLink>
+
 				<AppLink to="/stock.html">
-					<span class="material-symbols-rounded before:content-['\e762'] mr-[5px]"></span>
+					<IconCursor class="w-4 mr-1"/>
 					<span>Акции</span>
 				</AppLink>
+
 				<div class="group relative flex-col py-2">
 					<div class="flex items-center cursor-pointer">
-						<span class="material-symbols-rounded before:content-['\e88e'] mr-[5px]"></span>
+						<IconInfo class="min-w-[1rem] mr-1"/>
 						<span>Расширения</span>
-						<span class="material-symbols-rounded before:content-['\e5c5']"></span>
+						<IconArrowDown class="min-w-[0.75rem]"/>
 					</div>
 					<div
 						class="group-hover:scale-y-100 md:absolute md:scale-y-0 top-[50px] left-0 flex flex-col p-2 rounded-b-2xl md:space-y-1 space-y-2 origin-top transition-transform bg-blue will-change-transform text-[0.9em] w-full"
@@ -53,7 +58,7 @@
 				</div>
 
 				<AppButton class="tracking-[1px]" to="/download.html" color="green">
-					<span class="material-symbols-rounded before:content-['\f090'] mr-[5px]"></span>
+					<IconDownload class="w-4 mr-1"/>
 					<span>Скачать расширения</span>
 				</AppButton>
 			</div>
@@ -63,4 +68,11 @@
 
 <script setup lang="ts">
 import AppButton from '@/components/AppButton.vue'
-import AppLink from '@/components/AppLink.vue'</script>
+import AppLink from '@/components/AppLink.vue'
+import IconLogout from '@/components/icons/IconLogout.vue'
+import IconLogin from '@/components/icons/IconLogin.vue'
+import IconCursor from '@/components/icons/IconCursor.vue'
+import IconInfo from '@/components/icons/IconInfo.vue'
+import IconArrowDown from '@/components/icons/IconArrowDown.vue'
+import IconDownload from '@/components/icons/IconDownload.vue'
+import IconUser from '@/components/icons/IconUser.vue'</script>

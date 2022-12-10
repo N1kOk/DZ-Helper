@@ -30,6 +30,6 @@ const classes = computed(() => ({
 
 <style scoped>
 .link {
-	@apply flex items-center whitespace-nowrap
+	@apply flex justify-center items-center whitespace-nowrap transition-[filter] hover:brightness-90
 }
 </style>

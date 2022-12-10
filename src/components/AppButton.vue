@@ -6,9 +6,9 @@
 		:to="(!isExternalLink || undefined) && to"
 		:href="to"
 	>
-		<span class="relative flex items-center z-10">
+		<div class="relative flex items-center z-10">
 			<slot/>
-		</span>
+		</div>
 	</component>
 </template>
 
