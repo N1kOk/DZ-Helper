@@ -3,19 +3,10 @@
 @tailwind utilities;
 
 html {
-    height: 1px;
-    min-height: 100%;
-
     font-family: 'Rubik', sans-serif;
     font-size: clamp(16px, calc(1rem + ((1vw - 8px) * 0.6944)), 24px);
     text-align: center;
     color: white;
-}
-
-body {
-    height: inherit;
-    min-height: inherit;
-    padding-right: 0 !important;
 }
 
 input  {
