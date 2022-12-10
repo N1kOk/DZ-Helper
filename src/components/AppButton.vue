@@ -42,7 +42,7 @@ const classes = computed(() => ({
 
 <style scoped lang="css">
 .button {
-	@apply relative px-4 rounded-full border-2 border-current transition-colors overflow-hidden
+	@apply relative inline-block px-4 rounded-full border-2 border-current transition-colors overflow-hidden
 }
 
 .button:before {
