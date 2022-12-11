@@ -3,7 +3,7 @@
 		:is="componentName"
 		class="button"
 		:class="classes"
-		:to="(!isExternalLink || undefined) && to"
+		:to="to"
 		:href="to"
 	>
 		<div class="relative flex items-center z-10">
@@ -17,17 +17,14 @@ import { computed } from 'vue'
 
 interface Props {
 	to?: string
-	isExternalLink?: boolean
 	size?: 'md' | 'xl'
 	color?: 'green' | 'yellow' | 'blue'
 }
 
-const { color, size, to, isExternalLink } = defineProps<Props>()
+const { color, size, to } = defineProps<Props>()
 
 const componentName = computed(() => to
-	? isExternalLink
-		? 'a'
-		: 'RouterLink'
+	? 'RouterLink'
 	: 'button')
 
 const classes = computed(() => ({
@@ -42,7 +39,7 @@ const classes = computed(() => ({
 
 <style scoped lang="css">
 .button {
-	@apply relative inline-block px-4 rounded-full border-2 border-current transition-colors overflow-hidden
+	@apply relative inline-block max-w-max px-4 rounded-full border-2 border-current transition-colors overflow-hidden
 }
 
 .button:before {
