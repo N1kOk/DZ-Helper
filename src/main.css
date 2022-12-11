@@ -18,7 +18,7 @@ hr {
 }
 
 .container {
-    @apply w-[95%] lg:w-[70%]
+    @apply w-[95%] lg:max-w-[70%]
 }
 
 #header__menu-toggle:checked ~ .header__links {
