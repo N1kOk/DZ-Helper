@@ -24,7 +24,7 @@ const { to, isExternalLink, color } = defineProps<Props>()
 const componentName = computed(() => isExternalLink ? 'a' : 'RouterLink')
 
 const classes = computed(() => ({
-	'text-aqua underline underline-offset-1': color === 'aqua',
+	'text-aqua underline underline-offset-2': color === 'aqua',
 }))
 </script>
 

@@ -1,61 +1,63 @@
 <template>
-	<h1 class="text-4xl font-bold">Расширения</h1>
+	<AppSection>
+		<h1 class="text-3xl font-bold">Расширения</h1>
+		<div class="grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] gap-4">
+			<div
+				v-for="card in cards"
+				class="flex flex-col items-center gap-8 p-4 rounded-3xl border-2 shadow-xl bg-white/5"
+			>
+				<div class="flex justify-between items-center w-full gap-2">
+					<h2 class="text-2xl font-bold">{{ card.title }}</h2>
+					<component :is="card.icon" class="w-12"/>
+				</div>
 
-	<div class="grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] gap-4">
-		<div
-			v-for="card in cards"
-			class="flex flex-col items-center gap-8 p-4 rounded-3xl border-2 shadow-xl bg-white/5"
-		>
-			<div class="flex justify-between items-center w-full gap-2">
-				<span class="text-2xl font-bold">{{ card.title }}</span>
-				<component :is="card.icon" class="w-12"/>
-			</div>
+				<div class="flex justify-between w-full gap-2">
+					<AppButton
+						:to="card.links.instruction"
+						target="_blank"
+						rel="nofollow"
+					>
+						Инструкция
+					</AppButton>
 
-			<div class="flex justify-between w-full gap-2">
-				<AppButton
-					:to="card.links.instruction"
-					target="_blank"
-					rel="nofollow"
-				>
-					Инструкция
-				</AppButton>
-
-				<AppButton
-					:to="card.links.setup"
-					target="_blank"
-					rel="nofollow"
-					color="green"
-				>
-					Установить
-				</AppButton>
+					<AppButton
+						:to="card.links.setup"
+						target="_blank"
+						rel="nofollow"
+						color="green"
+					>
+						Установить
+					</AppButton>
+				</div>
 			</div>
 		</div>
 
-	</div>
-	<hr>
-	<div class="ads mx-auto">
-		<!-- Yandex.RTB R-A-489599-1 -->
-		<div id="yandex_rtb_R-A-489599-1" style="width: fit-content;"></div>
-		<component is="script" type="text/javascript">
-			(function (w, d, n, s, t) {
-			if (window.bBlockAds) return;
-			w[n] = w[n] || [];
-			w[n].push(function () {
-			Ya.Context.AdvManager.render({
-			blockId: "R-A-489599-1",
-			renderTo: "yandex_rtb_R-A-489599-1",
-			async: true
-			});
-			});
-			t = d.getElementsByTagName("script")[0];
-			s = d.createElement("script");
-			s.type = "text/javascript";
-			s.src = "//an.yandex.ru/system/context.js";
-			s.async = true;
-			t.parentNode.insertBefore(s, t);
-			})(this, this.document, "yandexContextAsyncCallbacks");
-		</component>
-	</div>
+		<hr>
+
+		<div class="ads mx-auto">
+			<!-- Yandex.RTB R-A-489599-1 -->
+			<div id="yandex_rtb_R-A-489599-1" style="width: fit-content;"></div>
+			<component is="script" type="text/javascript">
+				(function (w, d, n, s, t) {
+				if (window.bBlockAds) return;
+				w[n] = w[n] || [];
+				w[n].push(function () {
+				Ya.Context.AdvManager.render({
+				blockId: "R-A-489599-1",
+				renderTo: "yandex_rtb_R-A-489599-1",
+				async: true
+				});
+				});
+				t = d.getElementsByTagName("script")[0];
+				s = d.createElement("script");
+				s.type = "text/javascript";
+				s.src = "//an.yandex.ru/system/context.js";
+				s.async = true;
+				t.parentNode.insertBefore(s, t);
+				})(this, this.document, "yandexContextAsyncCallbacks");
+			</component>
+		</div>
+	</AppSection>
 </template>
 
 <script setup lang="ts">
@@ -67,6 +69,7 @@ import IconLike from '@/components/icons/IconLike.vue'
 import IconCheck from '@/components/icons/IconCheck.vue'
 import IconMath from '@/components/icons/IconMath.vue'
 import IconSum from '@/components/icons/IconSum.vue'
+import AppSection from '@/components/AppSection.vue'
 
 interface Card {
 	icon: Component

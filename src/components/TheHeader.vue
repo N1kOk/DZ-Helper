@@ -91,7 +91,7 @@ import IconUser from '@/components/icons/IconUser.vue'</script>
 	&__links {
 		@apply
 		max-lg:absolute left-0 top-16 w-full max-lg:pb-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium bg-inherit
-		transition-transform will-change-transform max-lg:scale-y-0 origin-top
+		transition-transform will-change-transform max-lg:[transform:scaleY(0)] origin-top
 
 		lg:w-max lg:my-auto lg:justify-end lg:space-x-4;
 	}
