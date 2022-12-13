@@ -27,7 +27,7 @@
 
 		<AppButton
 			class="mx-auto tracking-[1px]"
-			to="/download.html"
+			:to="Link.Download"
 			color="green"
 			size="xl"
 		>
@@ -42,4 +42,5 @@ import IconTarget from '@/components/icons/IconTarget.vue'
 import IconRocket from '@/components/icons/IconRocket.vue'
 import IconLightning from '@/components/icons/IconLightning.vue'
 import AppButton from '@/components/AppButton.vue'
-import AppSection from '@/components/AppSection.vue'</script>
+import AppSection from '@/components/AppSection.vue'
+import { Link } from '@/router'</script>

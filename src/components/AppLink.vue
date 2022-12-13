@@ -1,27 +1,24 @@
 <template>
-	<component
+	<RouterLink
 		class="link"
 		:class="classes"
-		:is="componentName"
-		:to="(!isExternalLink || undefined) && to"
+		:to="to"
 		:href="to"
 	>
 		<slot/>
-	</component>
+	</RouterLink>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Link } from '@/router'
 
 interface Props {
-	to?: string
-	isExternalLink?: boolean
+	to?: string | Link
 	color?: 'aqua'
 }
 
-const { to, isExternalLink, color } = defineProps<Props>()
-
-const componentName = computed(() => isExternalLink ? 'a' : 'RouterLink')
+const { to, color } = defineProps<Props>()
 
 const classes = computed(() => ({
 	'text-aqua underline underline-offset-2': color === 'aqua',

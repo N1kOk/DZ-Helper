@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
 		<nav class="header__nav">
-			<AppLink class="min-w-max flex items-center" to="/">
+			<AppLink class="min-w-max flex items-center" :to="Link.Index">
 				<img class="h-9" src="/assets/images/logo.png" alt="DZ-Helper">
 				<span class="ml-1 text-3xl font-bold whitespace-nowrap">DZ-Helper</span>
 			</AppLink>
@@ -16,20 +16,20 @@
 			</label>
 
 			<div class="header__links">
-				<AppButton class="!hidden max-lg:mb-2" to="/vklogin.php" is-external-link>
+				<AppButton class="max-lg:mb-2" :to="Link.LoginVK" @click="auth">
 					<IconLogin class="w-4 mr-1"/>
 					<span>Авторизоваться</span>
 				</AppButton>
-				<AppButton class="max-lg:mb-2">
+				<AppButton class="!hidden max-lg:mb-2">
 					<IconLogout class="w-4 mr-1"/>
 					<span>Выйти</span>
 				</AppButton>
-				<AppLink class="max-lg:p-2" to="/user.php">
+				<AppLink class="!hidden max-lg:p-2" :to="Link.User">
 					<IconUser class="w-4 mr-1"/>
 					<span>Кабинет</span>
 				</AppLink>
 
-				<AppLink class="max-lg:p-2" to="/stock.html">
+				<AppLink class="max-lg:p-2" :to="Link.Stock">
 					<IconCursor class="w-4 mr-1"/>
 					<span>Акции</span>
 				</AppLink>
@@ -41,16 +41,16 @@
 						<IconArrowDown class="min-w-[1rem]"/>
 					</div>
 					<div class="header__extensions">
-						<AppLink class="p-1" to="/webgramotei.html">Веб-Грамотей+</AppLink>
-						<AppLink class="p-1" to="/reshu.html">РешуОГЭ/ЕГЭ+</AppLink>
-						<AppLink class="p-1" to="/yaklass.html">ЯКласс+</AppLink>
-						<AppLink class="p-1" to="/uchiru.html">Учи.Ру+</AppLink>
-						<AppLink class="p-1" to="/uztest.html">UzTest+</AppLink>
-						<AppLink class="p-1" to="/resh.html">РЭШ+</AppLink>
+						<AppLink class="p-1" :to="Link.Webgramotei">Веб-Грамотей+</AppLink>
+						<AppLink class="p-1" :to="Link.ReshuEGE">РешуОГЭ/ЕГЭ+</AppLink>
+						<AppLink class="p-1" :to="Link.Yaklass">ЯКласс+</AppLink>
+						<AppLink class="p-1" :to="Link.Uchiru">Учи.Ру+</AppLink>
+						<AppLink class="p-1" :to="Link.UzTest">UzTest+</AppLink>
+						<AppLink class="p-1" :to="Link.Resh">РЭШ+</AppLink>
 					</div>
 				</div>
 
-				<AppButton class="tracking-[1px]" to="/download.html" color="green">
+				<AppButton class="tracking-[1px]" :to="Link.Download" color="green">
 					<IconDownload class="w-4 mr-1"/>
 					<span>Скачать расширения</span>
 				</AppButton>
@@ -68,7 +68,13 @@ import IconCursor from '@/components/icons/IconCursor.vue'
 import IconInfo from '@/components/icons/IconInfo.vue'
 import IconArrowDown from '@/components/icons/IconArrowDown.vue'
 import IconDownload from '@/components/icons/IconDownload.vue'
-import IconUser from '@/components/icons/IconUser.vue'</script>
+import IconUser from '@/components/icons/IconUser.vue'
+import { Link } from '@/router'
+
+const auth = () => {
+	location.assign(Link.LoginVK)
+}
+</script>
 
 <style scoped lang="scss">
 .header {

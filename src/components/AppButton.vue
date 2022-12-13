@@ -14,9 +14,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Link } from '@/router'
 
 interface Props {
-	to?: string
+	to?: string | Link
 	size?: 'md' | 'xl'
 	color?: 'green' | 'yellow' | 'blue'
 }

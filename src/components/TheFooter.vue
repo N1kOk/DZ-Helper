@@ -4,10 +4,10 @@
 			© Copyright 2023 DZ-Helper
 			<br>
 			&nbsp;<span>|</span>&nbsp;
-			<a href="#" target="_blank" rel="nofollow">Группа ВКонтакте</a>
+			<AppLink to="https://vk.com/dzhelper1" target="_blank" rel="nofollow">Группа ВКонтакте</AppLink>
 			&nbsp;<span>|</span>&nbsp;
 			<br>
-			<AppLink to="/privacy.html" rel="nofollow">Политика конфиденциальности</AppLink>
+			<AppLink to="/privacy.html">Политика конфиденциальности</AppLink>
 		</div>
 	</footer>
 </template>

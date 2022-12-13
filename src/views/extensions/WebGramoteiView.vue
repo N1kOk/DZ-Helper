@@ -46,22 +46,22 @@
 			<div id="yandex_rtb_R-A-489599-1" style="width: fit-content;"></div>
 			<component is="script" type="text/javascript">
 				(function (w, d, n, s, t) {
-				if (window.bBlockAds) return
-				w[n] = w[n] || []
-				w[n].push(function () {
-				Ya.Context.AdvManager.render({
-				blockId: 'R-A-489599-1',
-				renderTo: 'yandex_rtb_R-A-489599-1',
-				async: true,
-				})
-				})
-				t = d.getElementsByTagName('script')[0]
-				s = d.createElement('script')
-				s.type = 'text/javascript'
-				s.src = '//an.yandex.ru/system/context.js'
-				s.async = true
-				t.parentNode.insertBefore(s, t)
-				})(this, this.document, 'yandexContextAsyncCallbacks')
+					if (window.bBlockAds) return;
+					w[n] = w[n] || [];
+					w[n].push(function () {
+						Ya.Context.AdvManager.render({
+							blockId: 'R-A-489599-1',
+							renderTo: 'yandex_rtb_R-A-489599-1',
+							async: true,
+						});
+					});
+					t = d.getElementsByTagName('script')[0];
+					s = d.createElement('script');
+					s.type = 'text/javascript';
+					s.src = '//an.yandex.ru/system/context.js';
+					s.async = true;
+					t.parentNode.insertBefore(s, t);
+				})(this, this.document, 'yandexContextAsyncCallbacks');
 			</component>
 		</div>
 	</AppSection>
@@ -105,7 +105,7 @@
 				<p class="flex-1 text-sm">Попробуй наш продукт в действии и убедись в его качестве</p>
 				<AppButton
 					class="min-w-full uppercase"
-					to="/download.html"
+					:to="Link.Download"
 					color="green"
 					size="xl"
 				>
@@ -134,7 +134,7 @@
 				<p class="flex-1 text-sm">Есть возможность заработать коины совершенно бесплатно</p>
 				<AppButton
 					class="min-w-full uppercase"
-					to="/stock.html"
+					:to="Link.Stock"
 					color="blue"
 					size="xl"
 				>
@@ -157,7 +157,7 @@
 				<p class="flex-1 text-sm">Приобрети коины сразу и ни в чём себе не отказывай!</p>
 				<AppButton
 					class="min-w-full font-medium uppercase"
-					to="/buy.html"
+					:to="Link.Buy"
 					color="yellow"
 					size="xl"
 				>
@@ -169,7 +169,7 @@
 
 	<AppSection>
 		<div
-			class="flex flex-col w-full max-w-[550px] p-8 mx-auto space-y-6 bg-white/5 border-2 shadow-xl rounded-3xl"
+			class="flex flex-col w-full max-w-[30rem] p-8 mx-auto space-y-6 bg-white/5 border-2 shadow-xl rounded-3xl"
 		>
 			<span class="material-symbols-rounded before:content-['\e912'] !text-[125px]"></span>
 			<h2 class="text-3xl font-bold">Веб-Грамотей</h2>
@@ -190,7 +190,7 @@
 
 			<AppButton
 				class="mx-auto"
-				to="/download.html"
+				:to="Link.Download"
 				color="green"
 				size="xl"
 			>
@@ -220,4 +220,5 @@ import AppLink from '@/components/AppLink.vue'
 import IconCursor from '@/components/icons/IconCursor.vue'
 import IconMouse from '@/components/icons/IconMouse.vue'
 import IconSmile from '@/components/icons/IconSmile.vue'
-import AppButton from '@/components/AppButton.vue'</script>
+import AppButton from '@/components/AppButton.vue'
+import { Link } from '@/router'</script>

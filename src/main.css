@@ -9,6 +9,10 @@ html {
     color: white;
 }
 
+body {
+    @apply overflow-y-scroll
+}
+
 input  {
     @apply block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue
 }
