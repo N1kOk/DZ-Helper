@@ -3,7 +3,7 @@
 		<h1 class="text-3xl font-bold">
 			<slot name="title"/>
 		</h1>
-		<p>
+		<p class="-mt-4">
 			<slot name="description"/>
 		</p>
 		<div class="flex flex-wrap justify-evenly items-top gap-4">

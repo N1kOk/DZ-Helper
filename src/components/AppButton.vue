@@ -6,7 +6,7 @@
 		:to="to"
 		:href="to"
 	>
-		<div class="relative flex items-center z-10">
+		<div class="relative flex justify-center items-center z-10">
 			<slot/>
 		</div>
 	</component>
