@@ -1,6 +1,6 @@
 <template>
 	<AppSection is-stretched>
-		<h1 class="text-3xl font-bold">
+		<h1>
 			<slot name="title"/>
 		</h1>
 		<p class="-mt-4">

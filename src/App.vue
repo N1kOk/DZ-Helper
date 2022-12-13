@@ -1,10 +1,10 @@
 <template>
 	<div class="flex flex-col min-h-screen overflow-hidden">
 		<TheHeader/>
-		<main class="flex flex-col flex-1 bg-[#37bdfe]">
-			<div class="flex-1 bg-black/30">
+		<main class="flex flex-col flex-1 bg-[#2684b1]">
+<!--			<div class="flex-1">-->
 				<RouterView/>
-			</div>
+<!--			</div>-->
 		</main>
 		<TheFooter/>
 	</div>

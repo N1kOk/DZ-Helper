@@ -13,6 +13,10 @@ body {
     @apply overflow-y-scroll
 }
 
+h1 {
+    @apply text-4xl font-bold
+}
+
 input  {
     @apply block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue
 }

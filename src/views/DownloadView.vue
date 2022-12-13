@@ -1,6 +1,6 @@
 <template>
 	<AppSection>
-		<h1 class="text-3xl font-bold">Расширения</h1>
+		<h1>Расширения</h1>
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] gap-4">
 			<div
 				v-for="card in cards"

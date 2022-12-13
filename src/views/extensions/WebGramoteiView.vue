@@ -38,7 +38,11 @@
 				</p>
 			</div>
 			<div class="flex">
-				<img class="m-auto rounded-3xl shadow-xl" src="/assets/images/wg.png" alt="Веб-Грамотей расширение">
+				<img
+					class="m-auto object-contain rounded-3xl shadow-xl"
+					src="/assets/images/wg.png"
+					alt="Веб-Грамотей расширение"
+				>
 			</div>
 		</div>
 		<div class="ads mx-auto">
