@@ -77,15 +77,15 @@
 	<AppSection class="text-xl text-black font-medium bg-white max-lg:hidden">
 		<div class="flex flex-wrap justify-evenly gap-4">
 			<div class="flex items-center gap-1">
-				<IconCursor class="h-12 text-gray-400"/>
+				<IconCursor class="h-12 text-gray-300"/>
 				<span>Открой</span>
 			</div>
 			<div class="flex items-center gap-1">
-				<IconMouse class="h-12 text-gray-400"/>
+				<IconMouse class="h-12 text-gray-300"/>
 				<span>Попробуй</span>
 			</div>
 			<div class="flex items-center gap-1">
-				<IconSmile class="h-12 text-gray-400"/>
+				<IconSmile class="h-12 text-gray-300"/>
 				<span>Пользуйся</span>
 			</div>
 		</div>

@@ -6,21 +6,21 @@
 		<p class="-mt-4">
 			<slot name="description"/>
 		</p>
-		<div class="flex flex-wrap justify-evenly items-top gap-4">
-			<div class="leading-none">
-				<IconLightning class="w-[5rem] mx-auto"/>
+		<div class="flex flex-wrap justify-evenly items-top gap-8">
+			<div class="flex flex-col justify-between items-center gap-2 leading-none">
+				<IconLightning class="w-[5rem]"/>
 				<span>Быстрый поиск<br>ответов</span>
 			</div>
-			<div class="leading-none">
-				<IconRocket class="w-[5rem] mx-auto"/>
+			<div class="flex flex-col justify-between items-center gap-2 leading-none">
+				<IconRocket class="w-[5rem]"/>
 				<span>Высокая скорость<br>работы</span>
 			</div>
-			<div class="leading-none">
-				<IconTarget class="w-[5rem] mx-auto"/>
+			<div class="flex flex-col justify-between items-center gap-2 leading-none">
+				<IconTarget class="w-[5rem]"/>
 				<span>Абсолютная<br>грамотность</span>
 			</div>
-			<div class="leading-none">
-				<IconLike class="w-[5rem] mx-auto"/>
+			<div class="flex flex-col justify-between items-center gap-2 leading-none">
+				<IconLike class="w-[5rem]"/>
 				<span>Лёгкость в<br>использовании</span>
 			</div>
 		</div>
