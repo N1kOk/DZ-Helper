@@ -1,5 +1,5 @@
 <template>
-	<TheMainSection class="min-h-[calc(100vh-70px)]">
+	<TheMainSection class="lg:min-h-[calc(100vh-70px)]">
 		<template #title>
 			Автоматическое выполнение заданий
 		</template>

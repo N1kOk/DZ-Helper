@@ -1,13 +1,11 @@
 <template>
 	<AppSection is-stretched>
-		<div class="space-y-4">
-			<h1 class="text-3xl font-bold">
-				<slot name="title"/>
-			</h1>
-			<p>
-				<slot name="description"/>
-			</p>
-		</div>
+		<h1 class="text-3xl font-bold">
+			<slot name="title"/>
+		</h1>
+		<p>
+			<slot name="description"/>
+		</p>
 		<div class="flex flex-wrap justify-evenly items-top gap-4">
 			<div class="leading-none">
 				<IconLightning class="w-[5rem] mx-auto"/>

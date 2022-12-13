@@ -1,5 +1,5 @@
 <template>
-	<AppSection class="min-h-[calc(100vh-70px)]" is-stretched>
+	<AppSection class="lg:min-h-[calc(100vh-70px)]" is-stretched>
 		<div class="space-y-8">
 			<div class="mx-auto text-3xl font-bold">Ошибка 404</div>
 			<div class="mx-auto text-xl">Страница не найдена</div>
