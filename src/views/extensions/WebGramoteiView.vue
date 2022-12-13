@@ -50,21 +50,21 @@
 			<div id="yandex_rtb_R-A-489599-1" style="width: fit-content;"></div>
 			<component is="script" type="text/javascript">
 				(function (w, d, n, s, t) {
-					if (window.bBlockAds) return;
-					w[n] = w[n] || [];
-					w[n].push(function () {
-						Ya.Context.AdvManager.render({
-							blockId: 'R-A-489599-1',
-							renderTo: 'yandex_rtb_R-A-489599-1',
-							async: true,
-						});
-					});
-					t = d.getElementsByTagName('script')[0];
-					s = d.createElement('script');
-					s.type = 'text/javascript';
-					s.src = '//an.yandex.ru/system/context.js';
-					s.async = true;
-					t.parentNode.insertBefore(s, t);
+				if (window.bBlockAds) return;
+				w[n] = w[n] || [];
+				w[n].push(function () {
+				Ya.Context.AdvManager.render({
+				blockId: 'R-A-489599-1',
+				renderTo: 'yandex_rtb_R-A-489599-1',
+				async: true,
+				});
+				});
+				t = d.getElementsByTagName('script')[0];
+				s = d.createElement('script');
+				s.type = 'text/javascript';
+				s.src = '//an.yandex.ru/system/context.js';
+				s.async = true;
+				t.parentNode.insertBefore(s, t);
 				})(this, this.document, 'yandexContextAsyncCallbacks');
 			</component>
 		</div>
@@ -106,7 +106,7 @@
 					</div>
 				</div>
 				<hr>
-				<p class="flex-1 text-sm">Попробуй наш продукт в действии и убедись в его качестве</p>
+				<p class="flex-1">Попробуй наш продукт в действии и убедись в его качестве</p>
 				<AppButton
 					class="min-w-full uppercase"
 					:to="Link.Download"
@@ -122,20 +122,20 @@
 				</div>
 				<div class="text-left">
 					<div class="flex items-center text-left">
-						<span class="material-symbols-rounded before:content-['\eb3d']"></span>
+						<IconInfinity class="w-6" stroke-width="1"/>
 						<span>&nbsp;слов</span>
 					</div>
 					<p class="text-sm text-gray-300">&nbsp;или</p>
 					<div class="flex flex-col w-max text-center">
 						<div class="flex items-center text-left">
-							<span class="material-symbols-rounded before:content-['\eb3d']"></span>
+							<IconInfinity class="w-6" stroke-width="1"/>
 							<span>&nbsp;предложений</span>
 						</div>
 						<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
 					</div>
 				</div>
 				<hr>
-				<p class="flex-1 text-sm">Есть возможность заработать коины совершенно бесплатно</p>
+				<p class="flex-1">Есть возможность заработать коины совершенно бесплатно</p>
 				<AppButton
 					class="min-w-full uppercase"
 					:to="Link.Stock"
@@ -158,7 +158,7 @@
 					</div>
 				</div>
 				<hr>
-				<p class="flex-1 text-sm">Приобрети коины сразу и ни в чём себе не отказывай!</p>
+				<p class="flex-1">Приобрети коины сразу и ни в чём себе не отказывай!</p>
 				<AppButton
 					class="min-w-full font-medium uppercase"
 					:to="Link.Buy"
@@ -225,4 +225,5 @@ import IconCursor from '@/components/icons/IconCursor.vue'
 import IconMouse from '@/components/icons/IconMouse.vue'
 import IconSmile from '@/components/icons/IconSmile.vue'
 import AppButton from '@/components/AppButton.vue'
-import { Link } from '@/router'</script>
+import { Link } from '@/router'
+import IconInfinity from '@/components/icons/IconInfinity.vue'</script>
