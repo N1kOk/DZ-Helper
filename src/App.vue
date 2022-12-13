@@ -2,9 +2,7 @@
 	<div class="flex flex-col min-h-screen overflow-hidden">
 		<TheHeader/>
 		<main class="flex flex-col flex-1 bg-[#2684b1]">
-<!--			<div class="flex-1">-->
-				<RouterView/>
-<!--			</div>-->
+			<RouterView/>
 		</main>
 		<TheFooter/>
 	</div>

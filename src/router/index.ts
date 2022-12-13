@@ -17,6 +17,7 @@ export enum Link {
 	Stock = '/stock',
 	Login = '/login',
 	LoginVK = '/vklogin.php', // TODO Component
+	Privacy = '/privacy',
 	Download = '/download',
 	Resh = '/resh',
 	Uchiru = '/uchiru',
