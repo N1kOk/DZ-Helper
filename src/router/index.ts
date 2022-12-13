@@ -38,6 +38,13 @@ const router = createRouter({
 			},
 		},
 		{
+			path: Link.Stock,
+			component: () => import('@/views/StockView.vue'),
+			meta: {
+				title: 'Акции',
+			},
+		},
+		{
 			path: Link.Login,
 			component: () => import('@/views/LoginView.vue'),
 			meta: {
