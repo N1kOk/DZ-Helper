@@ -12,4 +12,4 @@
 </template>
 
 <script setup lang="ts">
-import TheMainSection from '@/components/TheMainSection.vue'</script>
+import TheMainSection from '@/components/TheSectionMain.vue'</script>

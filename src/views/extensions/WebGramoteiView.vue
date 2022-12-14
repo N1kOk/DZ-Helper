@@ -93,89 +93,57 @@
 
 	<AppSection>
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(175px,1fr))] gap-4">
-			<div class="flex flex-col gap-6 min-h-full p-4 bg-white/5 border-2 rounded-3xl shadow-xl">
-				<div class="text-left">
-					<span class="text-5xl font-bold">0</span><span class="text-4xl">₽</span>
+			<AppCardPrice
+				:cost="0"
+				description="Попробуй наш продукт в действии и убедись в его качестве"
+				:button="{ to: Link.Download, color: ButtonColor.Green, text: 'Испытать' }"
+			>
+				<p>30 слов</p>
+				<p class="text-sm text-gray-300">&nbsp;или</p>
+				<div class="flex flex-col w-max text-center">
+					<span>15 предложений</span>
+					<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
 				</div>
-				<div class="text-left">
-					<p>30 слов</p>
-					<p class="text-sm text-gray-300">&nbsp;или</p>
-					<div class="flex flex-col w-max text-center">
-						<span>15 предложений</span>
-						<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
-					</div>
+			</AppCardPrice>
+
+			<AppCardPrice
+				:cost="0"
+				description="Есть возможность заработать коины совершенно бесплатно"
+				:button="{ to: Link.Stock, color: ButtonColor.Blue, text: 'Заработать' }"
+			>
+				<div class="flex items-center text-left">
+					<IconInfinity class="w-6" stroke-width="1"/>
+					<span>&nbsp;слов</span>
 				</div>
-				<hr>
-				<p class="flex-1">Попробуй наш продукт в действии и убедись в его качестве</p>
-				<AppButton
-					class="min-w-full uppercase"
-					:to="Link.Download"
-					color="green"
-					size="xl"
-				>
-					Испытать
-				</AppButton>
-			</div>
-			<div class="flex flex-col gap-6 min-h-full p-4 bg-white/5 border-2 rounded-3xl shadow-xl">
-				<div class="text-left">
-					<span class="text-5xl font-bold">0</span><span class="text-4xl">₽</span>
-				</div>
-				<div class="text-left">
+				<p class="text-sm text-gray-300">&nbsp;или</p>
+				<div class="flex flex-col w-max text-center">
 					<div class="flex items-center text-left">
 						<IconInfinity class="w-6" stroke-width="1"/>
-						<span>&nbsp;слов</span>
+						<span>&nbsp;предложений</span>
 					</div>
-					<p class="text-sm text-gray-300">&nbsp;или</p>
-					<div class="flex flex-col w-max text-center">
-						<div class="flex items-center text-left">
-							<IconInfinity class="w-6" stroke-width="1"/>
-							<span>&nbsp;предложений</span>
-						</div>
-						<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
-					</div>
+					<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
 				</div>
-				<hr>
-				<p class="flex-1">Есть возможность заработать коины совершенно бесплатно</p>
-				<AppButton
-					class="min-w-full uppercase"
-					:to="Link.Stock"
-					color="blue"
-					size="xl"
-				>
-					Заработать
-				</AppButton>
-			</div>
-			<div class="flex flex-col gap-6 min-h-full p-4 bg-white/5 border-2 rounded-3xl shadow-xl">
-				<div class="text-left">
-					<span class="text-5xl font-bold">70</span><span class="text-4xl">₽</span>
+			</AppCardPrice>
+
+			<AppCardPrice
+				:cost="0"
+				description="Приобрети коины сразу и ни в чём себе не отказывай!"
+				:button="{ to: Link.Buy, color: ButtonColor.Yellow, text: 'Купить' }"
+			>
+
+				<p>100 слов</p>
+				<p class="text-sm text-gray-300">&nbsp;или</p>
+				<div class="flex flex-col w-max text-center">
+					<span>50 предложений</span>
+					<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
 				</div>
-				<div class="text-left">
-					<p>100 слов</p>
-					<p class="text-sm text-gray-300">&nbsp;или</p>
-					<div class="flex flex-col w-max text-center">
-						<span>50 предложений</span>
-						<span class="text-xs -mt-1 text-gray-300">(пунктуация)</span>
-					</div>
-				</div>
-				<hr>
-				<p class="flex-1">Приобрети коины сразу и ни в чём себе не отказывай!</p>
-				<AppButton
-					class="min-w-full font-medium uppercase"
-					:to="Link.Buy"
-					color="yellow"
-					size="xl"
-				>
-					Купить
-				</AppButton>
-			</div>
+			</AppCardPrice>
 		</div>
 	</AppSection>
 
 	<AppSection>
-		<div
-			class="flex flex-col w-full max-w-[30rem] p-8 mx-auto space-y-6 bg-white/5 border-2 shadow-xl rounded-3xl"
-		>
-			<span class="material-symbols-rounded before:content-['\e912'] !text-[125px]"></span>
+		<AppCard class="flex flex-col items-center w-full max-w-[30rem] p-8 mx-auto space-y-6">
+			<IconDevices class="w-24"/>
 			<h2 class="text-3xl font-bold">Веб-Грамотей</h2>
 			<div class="space-y-2">
 				<p>Расширение подходит для большинства браузеров (Chrome, Яндекс.Браузер, Opera...)</p>
@@ -200,7 +168,7 @@
 			>
 				Перейти к расширениям
 			</AppButton>
-		</div>
+		</AppCard>
 	</AppSection>
 
 	<AppSection>
@@ -218,7 +186,7 @@
 </template>
 
 <script setup lang="ts">
-import TheMainSection from '@/components/TheMainSection.vue'
+import TheMainSection from '@/components/TheSectionMain.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppLink from '@/components/AppLink.vue'
 import IconCursor from '@/components/icons/IconCursor.vue'
@@ -226,4 +194,8 @@ import IconMouse from '@/components/icons/IconMouse.vue'
 import IconSmile from '@/components/icons/IconSmile.vue'
 import AppButton from '@/components/AppButton.vue'
 import { Link } from '@/router'
-import IconInfinity from '@/components/icons/IconInfinity.vue'</script>
+import IconInfinity from '@/components/icons/IconInfinity.vue'
+import IconDevices from '@/components/icons/IconDevices.vue'
+import AppCardPrice from '@/components/AppCardPrice.vue'
+import AppCard from '@/components/AppCard.vue'
+import { ButtonColor } from '@/utils/button'</script>

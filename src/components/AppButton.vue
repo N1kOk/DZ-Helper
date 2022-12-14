@@ -15,26 +15,35 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Link } from '@/router'
+import { ButtonColor, ButtonSize } from '@/utils/button'
 
 interface Props {
 	to?: string | Link
-	size?: 'md' | 'xl'
-	color?: 'green' | 'yellow' | 'blue'
+	size?: ButtonSize
+	color?: ButtonColor
+	text?: string
 }
 
-const { color, size, to } = defineProps<Props>()
+const {
+	to,
+	size,
+	color,
+} = withDefaults(defineProps<Props>(), {
+	size: ButtonSize.Medium,
+	color: ButtonColor.Blue,
+})
 
 const componentName = computed(() => to
 	? 'RouterLink'
 	: 'button')
 
 const classes = computed(() => ({
-	'bg-blue': color === 'blue' || !color,
-	'bg-green': color === 'green',
-	'bg-[#eadd0a] text-[#3f3c03]': color === 'yellow',
+	'bg-blue': color === ButtonColor.Blue,
+	'bg-green': color === ButtonColor.Green,
+	'bg-[#eadd0a] text-[#3f3c03]': color === ButtonColor.Yellow,
 
-	'py-1': size === 'md' || !size,
-	'py-2 tracking-[1px]': size === 'xl',
+	'py-1': size === ButtonSize.Medium,
+	'py-2 tracking-[1px]': size === ButtonSize.Large,
 }))
 </script>
 
