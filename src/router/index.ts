@@ -49,6 +49,41 @@ const router = createRouter({
 			},
 		},
 		{
+			path: getCorrectUrl(Link.ReshuEGE),
+			component: () => import('@/views/extensions/ReshuEGEView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
+			path: getCorrectUrl(Link.Yaklass),
+			component: () => import('@/views/extensions/YaklassView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
+			path: getCorrectUrl(Link.Uchiru),
+			component: () => import('@/views/extensions/UchiruView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
+			path: getCorrectUrl(Link.UzTest),
+			component: () => import('@/views/extensions/UzTestView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
+			path: getCorrectUrl(Link.Resh),
+			component: () => import('@/views/extensions/ReshView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
 			path: '/:pathMatch(.*)*',
 			component: () => import('@/views/404View.vue'),
 			meta: {
