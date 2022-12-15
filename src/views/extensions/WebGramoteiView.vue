@@ -86,4 +86,4 @@ import ThePageExtension from '@/components/ThePageExtension.vue'
 import AppCardPrice from '@/components/AppCardPrice.vue'
 import IconInfinity from '@/components/icons/IconInfinity.vue'
 import { ButtonColor } from '@/utils/button'
-import { Link } from '@/router'</script>
+import { Link } from '@/utils/link'</script>

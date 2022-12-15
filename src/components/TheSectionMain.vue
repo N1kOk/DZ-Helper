@@ -43,4 +43,4 @@ import IconRocket from '@/components/icons/IconRocket.vue'
 import IconLightning from '@/components/icons/IconLightning.vue'
 import AppButton from '@/components/AppButton.vue'
 import AppSection from '@/components/AppSection.vue'
-import { Link } from '@/router'</script>
+import { Link } from '@/utils/link'</script>

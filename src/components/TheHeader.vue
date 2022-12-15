@@ -69,7 +69,7 @@ import IconInfo from '@/components/icons/IconInfo.vue'
 import IconArrowDown from '@/components/icons/IconArrowDown.vue'
 import IconDownload from '@/components/icons/IconDownload.vue'
 import IconUser from '@/components/icons/IconUser.vue'
-import { Link } from '@/router'
+import { Link } from '@/utils/link'
 
 const auth = () => {
 	location.assign(Link.LoginVK)

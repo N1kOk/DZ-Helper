@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
-
-import 'vue-router'
+import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
 
 declare module 'vue-router' {
 	interface RouteMeta {
@@ -10,57 +9,40 @@ declare module 'vue-router' {
 	}
 }
 
-export enum Link {
-	Index = '/',
-	Buy = '/buy',
-	User = '/user',
-	Stock = '/stock',
-	Login = '/login',
-	LoginVK = '/vklogin.php', // TODO Component
-	Privacy = '/privacy',
-	Download = '/download',
-	Resh = '/resh',
-	Uchiru = '/uchiru',
-	UzTest = '/uztest',
-	ReshuEGE = '/reshu',
-	Yaklass = '/yaklass',
-	Webgramotei = '/webgramotei',
-}
-
 // TODO Rename titles
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
-			path: Link.Index,
+			path: getCorrectUrl(Link.Index),
 			component: () => import('@/views/IndexView.vue'),
 			meta: {
 				title: 'Автоматизированное решение домашнего задания',
 			},
 		},
 		{
-			path: Link.Stock,
+			path: getCorrectUrl(Link.Stock),
 			component: () => import('@/views/StockView.vue'),
 			meta: {
 				title: 'Акции',
 			},
 		},
 		{
-			path: Link.Login,
+			path: getCorrectUrl(Link.Login),
 			component: () => import('@/views/LoginView.vue'),
 			meta: {
 				title: 'Авторизация',
 			},
 		},
 		{
-			path: Link.Download,
+			path: getCorrectUrl(Link.Download),
 			component: () => import('@/views/DownloadView.vue'),
 			meta: {
 				title: 'Сервисы автоматизированного решения ДЗ',
 			},
 		},
 		{
-			path: Link.Webgramotei,
+			path: getCorrectUrl(Link.Webgramotei),
 			component: () => import('@/views/extensions/WebGramoteiView.vue'),
 			meta: {
 				title: 'Автоматизированное решение ВебГрамотей 2022',
@@ -77,14 +59,16 @@ const router = createRouter({
 })
 
 
-// router.beforeEach((to, from) => {
+router.beforeEach((to) => {
+	return correctUrl(to)
+
 // 	if (to.meta.requiresAuth && !auth.isLoggedIn) {
 // 		return {
 // 			path: '/login',
 // 			query: { redirect: to.fullPath },
 // 		}
 // 	}
-// })
+})
 
 router.afterEach((to) => {
 	nextTick(() => {

@@ -14,5 +14,5 @@
 
 <script setup lang="ts">
 import AppLink from '@/components/AppLink.vue'
-import { Link } from '@/router'
+import { Link } from '@/utils/link'
 </script>

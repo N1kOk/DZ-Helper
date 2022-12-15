@@ -23,7 +23,7 @@
 import AppCard from '@/components/AppCard.vue'
 import { ButtonColor, ButtonSize } from '@/utils/button'
 import AppButton from '@/components/AppButton.vue'
-import { Link } from '@/router'
+import { Link } from '@/utils/link'
 
 interface Props {
 	cost: number
