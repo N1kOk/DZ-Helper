@@ -84,6 +84,13 @@ const router = createRouter({
 			},
 		},
 		{
+			path: getCorrectUrl(Link.Privacy),
+			component: () => import('@/views/PrivacyView.vue'),
+			meta: {
+				title: 'Автоматизированное решение ВебГрамотей 2022',
+			},
+		},
+		{
 			path: '/:pathMatch(.*)*',
 			component: () => import('@/views/404View.vue'),
 			meta: {
