@@ -23,7 +23,7 @@
 				description="Попробуй наш продукт в действии и убедись в его качестве"
 				:button="{ to: Link.Download, color: ButtonColor.Green, text: 'Испытать' }"
 			>
-				<p>6 решений</p>
+				<p>3 решения</p>
 			</AppCardPrice>
 
 			<AppCardPrice
@@ -44,7 +44,7 @@
 				description="Приобрети коины сразу и ни в чём себе не отказывай!"
 				:button="{ to: Link.Buy, color: ButtonColor.Yellow, text: 'Купить' }"
 			>
-				<p>20 решений</p>
+				<p>10 решений</p>
 			</AppCardPrice>
 		</template>
 		<template #keywords>
