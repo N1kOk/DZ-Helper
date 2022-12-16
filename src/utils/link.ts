@@ -5,6 +5,7 @@ export enum Link {
 	Buy = '/buy.html',
 	User = '/user.html', // TODO Rename to /user.php
 	Stock = '/stock.html',
+	Success = '/success.html',
 	Login = '/login.html',
 	LoginVK = '/vklogin.php', // TODO Component
 	Privacy = '/privacy.html',

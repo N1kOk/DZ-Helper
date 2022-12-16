@@ -24,6 +24,13 @@ const router = createRouter({
 			},
 		},
 		{
+			path: getCorrectUrl(Link.Success),
+			component: () => import('@/views/SuccessView.vue'),
+			meta: {
+				title: 'Спасибо за покупку!',
+			},
+		},
+		{
 			path: getCorrectUrl(Link.Stock),
 			component: () => import('@/views/StockView.vue'),
 			meta: {
