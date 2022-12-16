@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './styles/range';
+
 html {
     font-family: 'Rubik', sans-serif;
     font-size: clamp(16px, calc(1rem + ((1vw - 8px) * 0.6944)), 24px);
@@ -10,15 +12,15 @@ html {
 }
 
 body {
-    @apply overflow-y-scroll
+    @apply overflow-y-scroll;
 }
 
 h1 {
-    @apply text-4xl font-bold
+    @apply text-4xl font-bold;
 }
 
-input  {
-    @apply block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue
+input {
+    @apply inline-block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue;
 }
 
 hr {
@@ -26,7 +28,7 @@ hr {
 }
 
 .container {
-    @apply max-w-[95%] lg:max-w-[70%] mx-auto
+    @apply max-w-[95%] lg:max-w-[70%] mx-auto;
 }
 
 #header__menu-toggle:checked ~ .header__links {
@@ -49,7 +51,7 @@ hr {
 ::-webkit-scrollbar-button {
     background-repeat: no-repeat;
     width: 5px;
-    height: 0
+    height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -71,7 +73,7 @@ hr {
 ::-webkit-resizer {
     background-repeat: no-repeat;
     width: 15px;
-    height: 0
+    height: 0;
 }
 
 ::-webkit-scrollbar {

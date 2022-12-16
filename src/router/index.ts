@@ -7,7 +7,7 @@ declare module 'vue-router' {
 		title: string
 		description?: string
 		keywords?: string
-		requiresAuth?: boolean
+		isRequiredAuth?: boolean
 	}
 }
 
@@ -21,6 +21,22 @@ const router = createRouter({
 				title: 'Решение Веб-Грамотей (ОРФО-9), Учи.Ру, UzTest и ЯКласс',
 				description: 'Мы реализовали инновационное программное решение, благодаря которому вы сможете быстро и без труда выполнять задания на сайтах Веб-Грамотей (ОРФО-9), UchiRu, UzTest и ЯКласс.',
 				keywords: 'Веб-Грамотей, учи ру, uztest, веб-грамотей ответы, учи ру ответы, uztest ответы, веб-грамотей взлом, учи ру взлом, uztest взлом, гдз веб-грамотей, гдз учи ру, гдз uztest, орфо 9, взлом орфо 9, как сделать быстро орфо 9, гдз орфо 9, орфо 9 ответы, решение орфо 9, решение веб-грамотей, решение учи ру, решение uztest, ЯКласс ответы, ЯКласс взлом, ЯКласс решение, гдз ЯКласс',
+			},
+		},
+		{
+			path: getCorrectUrl(Link.Buy),
+			component: () => import('@/views/BuyView.vue'),
+			meta: {
+				title: 'Пополнение баланса',
+				isRequiredAuth: true
+			},
+		},
+		{
+			path: getCorrectUrl(Link.User),
+			component: () => import('@/views/UserView.vue'),
+			meta: {
+				title: 'Личный кабинет',
+				isRequiredAuth: true
 			},
 		},
 		{
@@ -132,14 +148,14 @@ const router = createRouter({
 
 
 router.beforeEach((to) => {
-	return correctUrl(to)
-
 // 	if (to.meta.requiresAuth && !auth.isLoggedIn) {
 // 		return {
 // 			path: '/login',
 // 			query: { redirect: to.fullPath },
 // 		}
 // 	}
+	
+	return correctUrl(to)
 })
 
 router.afterEach((to) => {

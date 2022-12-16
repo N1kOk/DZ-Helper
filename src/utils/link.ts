@@ -2,6 +2,7 @@ import type { RouteLocationNormalized } from 'vue-router'
 
 export enum Link {
 	Index = '/',
+	Ref = '/ref.html',
 	Buy = '/buy.html',
 	User = '/user.html', // TODO Rename to /user.php
 	Stock = '/stock.html',
