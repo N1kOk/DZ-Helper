@@ -3,7 +3,7 @@
 		<div class="m-auto space-y-8">
 			<p class="text-xl">Для просмотра этой страницы необходимо авторизоваться</p>
 			<AppButton
-				@click="login(redirect)"
+				@click="login"
 				:color="ButtonColor.Green"
 				:size="ButtonSize.Large"
 			>
@@ -14,11 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { parseQuery } from 'vue-router'
 import AppButton from '@/components/AppButton.vue'
 import { ButtonColor, ButtonSize } from '@/utils/button'
 import { login } from '@/utils/auth'
-import AppSection from '@/components/AppSection.vue'
-
-const { redirect } = <{ redirect?: string }>parseQuery(location.search)
-</script>
+import AppSection from '@/components/AppSection.vue'</script>
