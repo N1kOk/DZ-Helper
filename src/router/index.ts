@@ -24,6 +24,14 @@ const router = createRouter({
 			},
 		},
 		{
+			path: getCorrectUrl(Link.Ref),
+			component: () => import('@/views/RefView.vue'),
+			meta: {
+				title: 'Реферальная программа',
+				isRequiredAuth: true
+			},
+		},
+		{
 			path: getCorrectUrl(Link.Buy),
 			component: () => import('@/views/BuyView.vue'),
 			meta: {
