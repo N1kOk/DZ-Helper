@@ -2,9 +2,9 @@
 	<AppSection>
 		<h1>Расширения</h1>
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] gap-4">
-			<div
+			<AppCard
 				v-for="card in cards"
-				class="flex flex-col items-center gap-8 p-4 rounded-3xl border-2 shadow-xl bg-white/5"
+				class="gap-8"
 			>
 				<div class="flex justify-between items-center w-full gap-2">
 					<h2 class="text-2xl font-bold">{{ card.title }}</h2>
@@ -29,7 +29,7 @@
 						Установить
 					</AppButton>
 				</div>
-			</div>
+			</AppCard>
 		</div>
 
 		<hr>
@@ -70,6 +70,7 @@ import IconCheck from '@/components/icons/IconCheck.vue'
 import IconMath from '@/components/icons/IconMath.vue'
 import IconSum from '@/components/icons/IconSum.vue'
 import AppSection from '@/components/AppSection.vue'
+import AppCard from '@/components/AppCard.vue'
 
 interface Card {
 	icon: Component
