@@ -16,15 +16,15 @@
 			</label>
 
 			<div class="header__links">
-				<AppButton class="max-lg:mb-2" :to="Link.LoginVK" @click="auth">
+				<AppButton v-show="!store.getters.isLoggedIn" class="max-lg:mb-2" @click="login">
 					<IconLogin class="w-4 mr-1"/>
 					<span>Авторизоваться</span>
 				</AppButton>
-				<AppButton class="!hidden max-lg:mb-2">
+				<AppButton v-show="store.getters.isLoggedIn" class="max-lg:mb-2" @click="logout">
 					<IconLogout class="w-4 mr-1"/>
 					<span>Выйти</span>
 				</AppButton>
-				<AppLink class="!hidden max-lg:p-2" :to="Link.User">
+				<AppLink v-show="store.getters.isLoggedIn" class="max-lg:p-2" :to="Link.User">
 					<IconUser class="w-4 mr-1"/>
 					<span>Кабинет</span>
 				</AppLink>
@@ -70,10 +70,10 @@ import IconArrowDown from '@/components/icons/IconArrowDown.vue'
 import IconDownload from '@/components/icons/IconDownload.vue'
 import IconUser from '@/components/icons/IconUser.vue'
 import { Link } from '@/utils/link'
+import { useStore } from '@/store'
+import { login, logout } from '@/utils/auth'
 
-const auth = () => {
-	location.assign(Link.LoginVK)
-}
+const store = useStore()
 </script>
 
 <style scoped lang="scss">

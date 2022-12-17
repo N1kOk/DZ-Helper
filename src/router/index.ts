@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { nextTick } from 'vue'
-import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
+import { getCorrectUrl, Link } from '@/utils/link'
 
 declare module 'vue-router' {
 	interface RouteMeta {
@@ -28,7 +27,7 @@ const router = createRouter({
 			component: () => import('@/views/RefView.vue'),
 			meta: {
 				title: 'Реферальная программа',
-				isRequiredAuth: true
+				isRequiredAuth: true,
 			},
 		},
 		{
@@ -36,7 +35,7 @@ const router = createRouter({
 			component: () => import('@/views/BuyView.vue'),
 			meta: {
 				title: 'Пополнение баланса',
-				isRequiredAuth: true
+				isRequiredAuth: true,
 			},
 		},
 		{
@@ -44,7 +43,7 @@ const router = createRouter({
 			component: () => import('@/views/UserView.vue'),
 			meta: {
 				title: 'Личный кабинет',
-				isRequiredAuth: true
+				isRequiredAuth: true,
 			},
 		},
 		{
@@ -152,27 +151,6 @@ const router = createRouter({
 		else
 			return { top: 0 }
 	},
-})
-
-
-router.beforeEach((to) => {
-// 	if (to.meta.requiresAuth && !auth.isLoggedIn) {
-// 		return {
-// 			path: '/login',
-// 			query: { redirect: to.fullPath },
-// 		}
-// 	}
-	
-	return correctUrl(to)
-})
-
-router.afterEach((to) => {
-	nextTick(() => {
-		const { keywords, description, title } = to.meta
-		document.title = title
-		document.head.querySelector('meta[name="keywords"]')!.setAttribute('content', keywords || '')
-		document.head.querySelector('meta[name="description"]')!.setAttribute('content', description || '')
-	}).then()
 })
 
 export default router

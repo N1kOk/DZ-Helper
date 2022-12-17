@@ -55,8 +55,12 @@
 			<AppCard class="flex flex-col justify-between flex-1 gap-2">
 				<p class="text-xl font-bold">Реферальная программа</p>
 				<div>
-					<p>Ваша реф. ссылка: <AppLink id="reflink" to="#" color="aqua">vk.cc/9dbW6s</AppLink></p>
-					<p>Подробнее можно узнать <AppLink :to="Link.Ref" color="aqua">здесь</AppLink></p>
+					<p>Ваша реф. ссылка:
+						<AppLink id="reflink" to="#" color="aqua">vk.cc/9dbW6s</AppLink>
+					</p>
+					<p>Подробнее можно узнать
+						<AppLink :to="Link.Ref" color="aqua">здесь</AppLink>
+					</p>
 				</div>
 				<hr>
 				<p class="text-xl font-bold">Статистика</p>
