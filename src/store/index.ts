@@ -9,7 +9,7 @@ interface State {
 	refLink?: string
 }
 
-export enum Mutation {
+export const enum Mutation {
 	Login = 'login',
 	Logout = 'logout'
 }
@@ -17,6 +17,9 @@ export enum Mutation {
 export const injectionKey: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
+	state: () => ({
+		key: getCookie('userid'),
+	}),
 	getters: {
 		isLoggedIn: state => !!state.key,
 	},

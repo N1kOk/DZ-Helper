@@ -1,10 +1,10 @@
-export enum ButtonColor {
+export const enum ButtonColor {
 	Blue = 'blue',
 	Green = 'green',
 	Yellow = 'yellow'
 }
 
-export enum ButtonSize {
+export const enum ButtonSize {
 	Medium = 'md',
 	Large = 'xl'
 }

@@ -22,8 +22,8 @@
 					<p class="text-xl font-bold truncate">
 						Баланс:
 						<span class="text-yellow">
-							<span id="balance">14995</span>
-							<span id="strcoins"> коинов</span>
+							<span>14995</span>
+							<span>&nbsp;коинов</span>
 						</span>
 					</p>
 					<div class="w-max mx-auto space-y-1">
@@ -45,9 +45,9 @@
 					<div>
 						<p>Вы сможете решить:</p>
 						<div class="text-xs">
-							<p>Веб-Грамотей: 14995 <span id="strwords">слов</span></p>
+							<p>Веб-Грамотей: 14995 <span>слов</span></p>
 							<p>или</p>
-							<p>Учи.Ру/UzTest/ЯКласс: 1499 <span id="strtasks">заданий</span></p>
+							<p>Учи.Ру/UzTest/ЯКласс: 1499 <span>заданий</span></p>
 						</div>
 					</div>
 				</AppCard>
@@ -55,10 +55,12 @@
 			<AppCard class="flex flex-col justify-between flex-1 gap-2">
 				<p class="text-xl font-bold">Реферальная программа</p>
 				<div>
-					<p>Ваша реф. ссылка:
-						<AppLink id="reflink" to="#" color="aqua">vk.cc/9dbW6s</AppLink>
+					<p>
+						Ваша реф. ссылка:
+						<AppLink color="aqua">vk.cc/9dbW6s</AppLink>
 					</p>
-					<p>Подробнее можно узнать
+					<p>
+						Подробнее можно узнать
 						<AppLink :to="Link.Ref" color="aqua">здесь</AppLink>
 					</p>
 				</div>
@@ -102,4 +104,11 @@ import AppCard from '@/components/AppCard.vue'
 import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
-import { Link } from '@/utils/link'</script>
+import { Link } from '@/utils/link'
+
+function refClick(event: MouseEvent) {
+	console.log(event)
+	event.preventDefault()
+	console.log(123)
+}
+</script>

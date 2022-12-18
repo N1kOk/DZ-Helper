@@ -33,9 +33,7 @@ const {
 	color: ButtonColor.Blue,
 })
 
-const componentName = computed(() => to
-	? 'RouterLink'
-	: 'button')
+const componentName = computed(() => to ? 'RouterLink' : 'button')
 
 const classes = computed(() => ({
 	'bg-blue': color === ButtonColor.Blue,
