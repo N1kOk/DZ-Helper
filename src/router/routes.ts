@@ -1,17 +1,6 @@
 import { getCorrectUrl, Link } from '@/utils/link'
 import type { RouteRecordRaw } from 'vue-router'
 
-interface Meta {
-	title: string
-	description?: string
-	keywords?: string
-	isRequiredAuth?: boolean
-}
-
-declare module 'vue-router' {
-	interface RouteMeta extends Meta {}
-}
-
 export const routes: readonly RouteRecordRaw[] = [
 	{
 		path: getCorrectUrl(Link.Index),

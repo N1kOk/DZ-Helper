@@ -6,6 +6,7 @@ import { deleteCookie, getCookie } from '@/utils/cookie'
 interface State {
 	key?: string
 	name?: string
+	vkId?: string
 	refLink?: string
 }
 
@@ -27,6 +28,7 @@ export const store = createStore<State>({
 		[Mutation.Login](state) {
 			state.key = getCookie('userid')
 			state.name = getCookie('username')
+			state.vkId = getCookie('vklogin')
 			state.refLink = getCookie('reflink')
 		},
 		[Mutation.Logout](state) {

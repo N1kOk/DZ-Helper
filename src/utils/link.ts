@@ -1,4 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router'
+import { isDev } from '@/utils/helpers'
 
 export enum Link {
 	Index = '/',
@@ -18,8 +19,6 @@ export enum Link {
 	Yaklass = '/yaklass.html',
 	Webgramotei = '/webgramotei.html',
 }
-
-export const isDev = location.hostname === '127.0.0.1'
 
 export const getCorrectUrl = (url: string) =>
 	isDev
