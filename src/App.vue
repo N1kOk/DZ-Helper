@@ -25,9 +25,10 @@ const store = useStore()
 watch(() => store.getters.isLoggedIn,
 	() => {
 		const path = getCorrectUrl(router.currentRoute.value.path)
+		const pagesRequiredAuth = router.options.routes.filter(value => value.meta?.isRequiredAuth)
 
-		for (const link of [Link.Buy, Link.Ref, Link.User]) {
-			if (path === getCorrectUrl(link)) {
+		for (const page of pagesRequiredAuth) {
+			if (path === page.path) {
 				router.push({ path: Link.Login, query: { redirect: router.currentRoute.value.fullPath } })
 				return
 			}

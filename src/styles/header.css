@@ -1,0 +1,15 @@
+#header__menu-toggle:checked ~ .header__links {
+    transform: scaleY(1);
+}
+
+#header__menu-toggle:checked ~ .header__burger > span:nth-child(1) {
+    transform: rotate(43deg);
+}
+
+#header__menu-toggle:checked ~ .header__burger > span:nth-child(2) {
+    transform: scaleX(0);
+}
+
+#header__menu-toggle:checked ~ .header__burger > span:nth-child(3) {
+    transform: rotate(-43deg);
+}
