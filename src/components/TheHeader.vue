@@ -2,7 +2,7 @@
 	<header class="header">
 		<nav class="header__nav">
 			<AppLink class="min-w-max flex items-center" :to="Link.Index">
-				<img class="h-9" src="/assets/images/logo.png" alt="DZ-Helper">
+				<img class="h-9" src="/assets/images/logo.svg" alt="DZ-Helper">
 				<span class="ml-1 text-3xl font-bold whitespace-nowrap">DZ-Helper</span>
 			</AppLink>
 
