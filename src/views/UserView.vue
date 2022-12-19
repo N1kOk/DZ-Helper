@@ -16,7 +16,13 @@
 							vk.com/id437657519
 						</AppLink>
 					</p>
-					<AppButton class="mx-auto" id="vipacc" :color="ButtonColor.Yellow">VIP-Аккаунт</AppButton>
+					<AppButton
+						@click="buyVip"
+						class="mx-auto"
+						:color="ButtonColor.Yellow"
+					>
+						VIP-Аккаунт
+					</AppButton>
 				</AppCard>
 				<AppCard class="gap-2">
 					<p class="text-xl font-bold truncate">
@@ -57,7 +63,7 @@
 				<div>
 					<p>
 						Ваша реф. ссылка:
-						<AppLink color="aqua">vk.cc/9dbW6s</AppLink>
+						<AppLink @click="copyRefLink" color="aqua">vk.cc/9dbW6s</AppLink>
 					</p>
 					<p>
 						Подробнее можно узнать
@@ -105,10 +111,48 @@ import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
+import { copyRefLink, get } from '@/utils/helpers'
+import Swal from 'sweetalert2'
 
-function refClick(event: MouseEvent) {
-	console.log(event)
-	event.preventDefault()
-	console.log(123)
+async function buyVip() {
+	const res = await Swal.fire({
+		title: 'VIP-Аккаунт',
+		html: `
+<br>
+<a class="text-blue underline underline-offset-2" href="https://vk.com/@dzhelper1-vip" target="_blank">
+Преимущества VIP-Аккаунта
+</a><br><br>
+Стоимость: 169 коинов<br>
+Срок действия: 14 дней<br><br>
+Вы уверены, что хотите купить VIP-Аккаунт?`,
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonText: 'Отмена',
+		confirmButtonText: 'Купить',
+	})
+
+	if (res.value) {
+		type Response = 'ok' | 'no balance' | 'already'
+
+		const response = await get<Response>('/db/users/buyvip.php')
+
+		switch (response) {
+			case 'ok':
+				await Swal.fire('VIP-Аккаунт', 'Покупка прошла успешно!', 'success')
+				break
+			case 'no balance':
+				await Swal.fire('VIP-Аккаунт', 'На вашем балансе недостаточно средств.', 'error')
+				break
+			case 'already':
+				await Swal.fire('VIP-Аккаунт', 'VIP-Аккаунт уже приобретён.', 'error')
+				break
+		}
+	}
+}
+
+function declination(number: number, titles: string[]) {
+	const cases = [2, 0, 1, 1, 1, 2]
+	return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]]
 }
 </script>

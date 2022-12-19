@@ -46,7 +46,7 @@
 			<p>
 				Репост:
 				<AppLink
-					to="https://vk.com/wall-164600218_154070"
+					:to="`https://vk.com/wall-164600218_${repostPostId}`"
 					rel="nofollow"
 					target="_blank"
 					color="aqua"
@@ -55,7 +55,7 @@
 				</AppLink>
 			</p>
 			<br>
-			<AppButton id="chrepost" color="green" size="xl">Проверить репост</AppButton>
+			<AppButton @click="check('repost')" color="green" size="xl">Проверить репост</AppButton>
 			<br><br>
 			<p>
 				Не удаляйте репост, иначе с вашего баланса будет списано <span class="text-yellow">100 коинов</span>.
@@ -103,7 +103,7 @@
 				</AppLink>
 			</p>
 			<br>
-			<AppButton id="chlikes" color="green" size="xl">Проверить лайки</AppButton>
+			<AppButton @click="check('likes')" color="green" size="xl">Проверить лайки</AppButton>
 		</div>
 		<hr>
 		<div>
@@ -125,7 +125,7 @@
 				</AppLink>
 			</p>
 			<br>
-			<AppButton id="chsubscribe" color="green" size="xl">Проверить подписку</AppButton>
+			<AppButton @click="check('subscribe')" color="green" size="xl">Проверить подписку</AppButton>
 		</div>
 		<hr>
 		<div>
@@ -242,4 +242,98 @@
 <script setup lang="ts">
 import AppSection from '@/components/AppSection.vue'
 import AppButton from '@/components/AppButton.vue'
-import AppLink from '@/components/AppLink.vue'</script>
+import AppLink from '@/components/AppLink.vue'
+import { useStore } from '@/store'
+import Swal from 'sweetalert2'
+import { get } from '@/utils/helpers'
+
+const repostPostId = 154070
+
+const store = useStore()
+
+const fns = {
+	repost: checkRepost,
+	likes: checkLikes,
+	subscribe: checkSubscribe,
+} as const
+
+function check(type: keyof typeof fns) {
+	if (!store.getters.isLoggedIn) {
+		Swal.fire('DZ-Helper', 'Сначала необходимо авторизоваться', 'error')
+		return
+	}
+
+	fns[type]()
+}
+
+type Response = 'ok' | 'stop' | 'not_found' | 'refresh' | 'private'
+
+async function checkRepost() {
+	const res = await get<Response>(`/stock/chrepost.php?postid=${repostPostId}`)
+
+	switch (res) {
+		case 'ok':
+			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 100 коинов', 'success')
+			break
+		case 'stop':
+			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			break
+		case 'not_found':
+			await Swal.fire('DZ-Helper', 'Репост не найден', 'error')
+			break
+		case 'refresh':
+			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			location.assign('/db/auth.php')
+			break
+		case 'private':
+			await Swal.fire('DZ-Helper', 'Мы не можем начислить вам награду, так как у вашего профиля меньше 50 друзей, либо профиль является приватным', 'error')
+			break
+	}
+}
+
+async function checkLikes() {
+	const res = await get<Response>('/stock/chlikes.php')
+
+	switch (res) {
+		case 'ok':
+			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 10 коинов', 'success')
+			break
+		case 'stop':
+			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			break
+		case 'not_found':
+			await Swal.fire('DZ-Helper', 'Лайки не найдены', 'error')
+			break
+		case 'refresh':
+			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			location.assign('/db/auth.php')
+			break
+		case 'private':
+			await Swal.fire('DZ-Helper', 'Мы не можем проверить наличие лайков, так как ваш профиль является приватным', 'error')
+			break
+	}
+}
+
+async function checkSubscribe() {
+	const res = await get<Response>('/stock/chsubscribe.php')
+
+	switch (res) {
+		case 'ok':
+			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 10 коинов', 'success')
+			break
+		case 'stop':
+			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			break
+		case 'not_found':
+			await Swal.fire('DZ-Helper', 'Подписка не найдена', 'error')
+			break
+		case 'refresh':
+			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			location.assign('/db/auth.php')
+			break
+		case 'private':
+			await Swal.fire('DZ-Helper', 'Мы не можем проверить наличие подписки, так как ваш профиль является приватным', 'error')
+			break
+	}
+}
+</script>
