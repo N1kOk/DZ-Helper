@@ -14,7 +14,8 @@ html {
 }
 
 body {
-    @apply overflow-y-scroll;
+    padding-right: 0 !important;
+    overflow-y: scroll !important;
 }
 
 h1 {
