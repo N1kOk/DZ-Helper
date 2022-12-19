@@ -111,8 +111,13 @@ import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
-import { copyRefLink, get } from '@/utils/helpers'
+import { copyRefLink, get, isLoaderShowed } from '@/utils/helpers'
 import Swal from 'sweetalert2'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+	isLoaderShowed.value = true
+})
 
 async function buyVip() {
 	const res = await Swal.fire({

@@ -7,10 +7,8 @@
 
 <script setup lang="ts">
 import AppSpinner from '@/components/AppSpinner.vue'
-import { ref } from 'vue'
 import router from '@/router'
-
-const isLoaderShowed = ref(false)
+import { isLoaderShowed } from '@/utils/helpers'
 
 router.beforeEach(() => isLoaderShowed.value = true)
 router.afterEach(() => isLoaderShowed.value = false)
