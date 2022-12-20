@@ -7,7 +7,7 @@
 		</p>
 		<div class="space-y-2">
 			<p>Ваша реферальная ссылка:</p>
-			<AppLink @click="copyRefLink" color="aqua">https://vk.cc/9dbW6s</AppLink>
+			<AppLink @click="copyRefLink" color="aqua">https://vk.cc/reflink</AppLink>
 			<p class="text-xs">(Чтобы скопировать, нажмите на ссылку)</p>
 		</div>
 		<div>

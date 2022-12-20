@@ -5,15 +5,15 @@
 		<div class="flex max-lg:flex-col gap-8">
 			<div class="flex flex-col flex-1 gap-8">
 				<AppCard class="gap-2">
-					<p class="text-xl font-bold truncate">Nik Ok</p>
+					<p class="text-xl font-bold truncate">Username</p>
 					<p>
 						Привязано к:
 						<AppLink
-							to="https://vk.com/id437657519"
+							to="https://vk.com/id123456789"
 							target="_blank"
 							color="aqua"
 						>
-							vk.com/id437657519
+							vk.com/id123456789
 						</AppLink>
 					</p>
 					<AppButton
@@ -27,7 +27,7 @@
 				<AppCard class="gap-2">
 					<p class="text-xl font-bold truncate">
 						Баланс коинов:
-						<span class="text-yellow" :class="blur">14995</span>
+						<span class="text-yellow" :class="blur">0</span>
 					</p>
 					<div class="w-max mx-auto space-y-1">
 						<AppButton
@@ -50,12 +50,12 @@
 						<div class="text-xs">
 							<p>
 								Слов в Веб-Грамотей:
-								<span :class="blur">14995</span>
+								<span :class="blur">0</span>
 							</p>
 							<p>или</p>
 							<p>
 								Заданий Учи.ру/UzTest/ЯКласс:
-								<span :class="blur">1499</span>
+								<span :class="blur">0</span>
 							</p>
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 				<div>
 					<p>
 						Ваша реф. ссылка:
-						<AppLink @click="copyRefLink" color="aqua">vk.cc/9dbW6s</AppLink>
+						<AppLink @click="copyRefLink" color="aqua">vk.cc/reflink</AppLink>
 					</p>
 					<p>
 						Подробнее можно узнать
@@ -77,7 +77,7 @@
 				<p class="text-xl font-bold">Статистика</p>
 				<p>
 					Заработано коинов:
-					<span class="text-yellow" :class="blur">433</span>
+					<span class="text-yellow" :class="blur">0</span>
 				</p>
 				<div>
 					<p>Приглашенные участники:</p>
@@ -95,6 +95,7 @@
 									vk.com/id123456789
 								</AppLink>
 							</p>
+							<!--TODO Null refs-->
 						</div>
 					</div>
 				</div>

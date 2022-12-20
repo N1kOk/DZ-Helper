@@ -259,7 +259,7 @@ const fns = {
 
 function check(type: keyof typeof fns) {
 	if (!store.getters.isLoggedIn) {
-		Swal.fire('DZ-Helper', 'Сначала необходимо авторизоваться', 'error')
+		Swal.fire('Ошибка', 'Сначала необходимо авторизоваться', 'error')
 		return
 	}
 
@@ -273,20 +273,20 @@ async function checkRepost() {
 
 	switch (res) {
 		case 'ok':
-			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 100 коинов', 'success')
+			await Swal.fire('Награда', 'На ваш баланс зачислено 100 коинов', 'success')
 			break
 		case 'stop':
-			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			await Swal.fire('Ошибка', 'Вы уже получали награду', 'error')
 			break
 		case 'not_found':
-			await Swal.fire('DZ-Helper', 'Репост не найден', 'error')
+			await Swal.fire('Ошибка', 'Репост не найден', 'error')
 			break
 		case 'refresh':
-			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			await Swal.fire('Ошибка', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
 			location.assign('/db/auth.php')
 			break
 		case 'private':
-			await Swal.fire('DZ-Helper', 'Мы не можем начислить вам награду, так как у вашего профиля меньше 50 друзей, либо профиль является приватным', 'error')
+			await Swal.fire('Ошибка', 'Мы не можем начислить вам награду, так как у вашего профиля меньше 50 друзей, либо профиль является приватным', 'error')
 			break
 	}
 }
@@ -296,20 +296,20 @@ async function checkLikes() {
 
 	switch (res) {
 		case 'ok':
-			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 10 коинов', 'success')
+			await Swal.fire('Награда', 'На ваш баланс зачислено 10 коинов', 'success')
 			break
 		case 'stop':
-			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			await Swal.fire('Ошибка', 'Вы уже получали награду', 'error')
 			break
 		case 'not_found':
-			await Swal.fire('DZ-Helper', 'Лайки не найдены', 'error')
+			await Swal.fire('Ошибка', 'Лайки не найдены', 'error')
 			break
 		case 'refresh':
-			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			await Swal.fire('Ошибка', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
 			location.assign('/db/auth.php')
 			break
 		case 'private':
-			await Swal.fire('DZ-Helper', 'Мы не можем проверить наличие лайков, так как ваш профиль является приватным', 'error')
+			await Swal.fire('Ошибка', 'Мы не можем проверить наличие лайков, так как ваш профиль является приватным', 'error')
 			break
 	}
 }
@@ -319,20 +319,20 @@ async function checkSubscribe() {
 
 	switch (res) {
 		case 'ok':
-			await Swal.fire('DZ-Helper', 'На ваш баланс зачислено 10 коинов', 'success')
+			await Swal.fire('Награда', 'На ваш баланс зачислено 10 коинов', 'success')
 			break
 		case 'stop':
-			await Swal.fire('DZ-Helper', 'Вы уже получали награду', 'error')
+			await Swal.fire('Ошибка', 'Вы уже получали награду', 'error')
 			break
 		case 'not_found':
-			await Swal.fire('DZ-Helper', 'Подписка не найдена', 'error')
+			await Swal.fire('Ошибка', 'Подписка не найдена', 'error')
 			break
 		case 'refresh':
-			await Swal.fire('DZ-Helper', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
+			await Swal.fire('Ошибка', 'Произошла ошибка. Пожалуйста, повторите попытку', 'error')
 			location.assign('/db/auth.php')
 			break
 		case 'private':
-			await Swal.fire('DZ-Helper', 'Мы не можем проверить наличие подписки, так как ваш профиль является приватным', 'error')
+			await Swal.fire('Ошибка', 'Мы не можем проверить наличие подписки, так как ваш профиль является приватным', 'error')
 			break
 	}
 }
