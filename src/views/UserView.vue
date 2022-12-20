@@ -26,11 +26,8 @@
 				</AppCard>
 				<AppCard class="gap-2">
 					<p class="text-xl font-bold truncate">
-						Баланс:
-						<span class="text-yellow">
-							<span :class="blur">14995</span>
-							<span>&nbsp;коинов</span>
-						</span>
+						Баланс коинов:
+						<span class="text-yellow" :class="blur">14995</span>
 					</p>
 					<div class="w-max mx-auto space-y-1">
 						<AppButton
@@ -52,15 +49,13 @@
 						<p>Вы сможете решить:</p>
 						<div class="text-xs">
 							<p>
-								Веб-Грамотей:
+								Слов в Веб-Грамотей:
 								<span :class="blur">14995</span>
-								<span>&nbsp;слов</span>
 							</p>
 							<p>или</p>
 							<p>
-								Учи.Ру/UzTest/ЯКласс:
+								Заданий Учи.ру/UzTest/ЯКласс:
 								<span :class="blur">1499</span>
-								<span>&nbsp;заданий</span>
 							</p>
 						</div>
 					</div>
@@ -165,11 +160,6 @@ async function buyVip() {
 				break
 		}
 	}
-}
-
-function getDeclination(number: number, titles: string[]) {
-	const cases = [2, 0, 1, 1, 1, 2]
-	return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]]
 }
 </script>
 
