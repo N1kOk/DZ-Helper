@@ -1,5 +1,5 @@
 <template>
-	<AppSection class="lg:min-h-[calc(100vh-70px)]">
+	<AppSection class="lg:min-h-screen">
 		<div class="m-auto space-y-8">
 			<p class="text-xl">Для просмотра этой страницы необходимо авторизоваться</p>
 			<AppButton

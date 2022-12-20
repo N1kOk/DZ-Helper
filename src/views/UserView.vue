@@ -1,5 +1,5 @@
 <template>
-	<AppSection class="lg:min-h-[calc(100vh-70px)]">
+	<AppSection class="lg:min-h-screen" is-stretched>
 		<h1>Личный кабинет</h1>
 
 		<div class="flex max-lg:flex-col gap-8">
@@ -28,7 +28,7 @@
 					<p class="text-xl font-bold truncate">
 						Баланс:
 						<span class="text-yellow">
-							<span>14995</span>
+							<span :class="blur">14995</span>
 							<span>&nbsp;коинов</span>
 						</span>
 					</p>
@@ -51,9 +51,17 @@
 					<div>
 						<p>Вы сможете решить:</p>
 						<div class="text-xs">
-							<p>Веб-Грамотей: 14995 <span>слов</span></p>
+							<p>
+								Веб-Грамотей:
+								<span :class="blur">14995</span>
+								<span>&nbsp;слов</span>
+							</p>
 							<p>или</p>
-							<p>Учи.Ру/UzTest/ЯКласс: 1499 <span>заданий</span></p>
+							<p>
+								Учи.Ру/UzTest/ЯКласс:
+								<span :class="blur">1499</span>
+								<span>&nbsp;заданий</span>
+							</p>
 						</div>
 					</div>
 				</AppCard>
@@ -72,31 +80,27 @@
 				</div>
 				<hr>
 				<p class="text-xl font-bold">Статистика</p>
-				<p>Заработано коинов: <span class="text-yellow">433</span></p>
+				<p>
+					Заработано коинов:
+					<span class="text-yellow" :class="blur">433</span>
+				</p>
 				<div>
 					<p>Приглашенные участники:</p>
 					<div
-						class="w-[80%] max-w-[325px] h-[150px] mx-auto overflow-y-auto border-2 border-blue bg-black/5">
+						class="w-[80%] max-w-[325px] h-[8rem] mx-auto overflow-y-auto border-2 border-blue bg-black/5">
 						<div class="mx-auto text-sm text-left w-max">
-							<p>
-								1. <a class="link" href="https://vk.com/id7385146" target="_blank">vk.com/id7385146</a>
+							<p v-for="i in 10">
+								<span>{{ i }}. </span>
+								<AppLink
+									to="https://vk.com/id123456789"
+									target="_blank"
+									class="no-underline"
+									color="aqua"
+								>
+									vk.com/id123456789
+								</AppLink>
 							</p>
-							<p>2. <a class="link" href="https://vk.com/id211000759"
-							         target="_blank">vk.com/id211000759</a></p>
-							<p>3. <a class="link" href="https://vk.com/id526284531"
-							         target="_blank">vk.com/id526284531</a></p>
-							<p>4. <a class="link" href="https://vk.com/id479066412"
-							         target="_blank">vk.com/id479066412</a></p>
-							<p>5. <a class="link" href="https://vk.com/id208430461"
-							         target="_blank">vk.com/id208430461</a></p>
-							<p>6. <a class="link" href="https://vk.com/id411865939"
-							         target="_blank">vk.com/id411865939</a></p>
-							<p>7. <a class="link" href="https://vk.com/id324269836"
-							         target="_blank">vk.com/id324269836</a></p>
-							<p>8. <a class="link" href="https://vk.com/id194303753"
-							         target="_blank">vk.com/id194303753</a></p>
-							<p>9. <a class="link" href="https://vk.com/id480180420"
-							         target="_blank">vk.com/id480180420</a></p></div>
+						</div>
 					</div>
 				</div>
 			</AppCard>
@@ -113,10 +117,14 @@ import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
 import { copyRefLink, get } from '@/utils/helpers'
 import Swal from 'sweetalert2'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { Mutation, useStore } from '@/store'
 
 const store = useStore()
+
+const blur = computed(() => ({
+	'blur': store.state.isLoaderShowed,
+}))
 
 onMounted(() => {
 	store.commit(Mutation.ShowLoader)
@@ -164,3 +172,9 @@ function getDeclination(number: number, titles: string[]) {
 	return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]]
 }
 </script>
+
+<style scoped lang="css">
+.blur {
+	@apply blur-[7px]
+}
+</style>

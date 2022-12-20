@@ -1,5 +1,5 @@
 <template>
-	<AppSection>
+	<AppSection class="lg:min-h-screen">
 		<h1>Расширения</h1>
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] gap-4">
 			<AppCard
