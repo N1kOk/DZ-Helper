@@ -1,6 +1,6 @@
 <template>
 	<div class="fixed left-0 top-0 w-screen h-screen flex bg-black/50 z-40 pointer-events-none transition-opacity"
-	     :class="{ 'opacity-0': !isLoaderShowed }">
+	     :class="{ 'opacity-0': !store.state.isLoaderShowed }">
 		<AppSpinner class="m-auto scale-150"/>
 	</div>
 </template>
@@ -8,8 +8,10 @@
 <script setup lang="ts">
 import AppSpinner from '@/components/AppSpinner.vue'
 import router from '@/router'
-import { isLoaderShowed } from '@/utils/helpers'
+import { Mutation, useStore } from '@/store'
 
-router.beforeEach(() => isLoaderShowed.value = true)
-router.afterEach(() => isLoaderShowed.value = false)
+const store = useStore()
+
+router.beforeEach(() => store.commit(Mutation.ShowLoader))
+router.afterEach(() => store.commit(Mutation.HideLoader))
 </script>

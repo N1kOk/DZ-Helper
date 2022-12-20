@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2'
-import { ref } from 'vue'
 
 export const isDev = location.hostname === '127.0.0.1'
 
@@ -44,6 +43,3 @@ export const Toast = Swal.mixin({
 		toast.addEventListener('mouseleave', Swal.resumeTimer)
 	},
 })
-
-// TODO Move to Vuex
-export const isLoaderShowed = ref(false)

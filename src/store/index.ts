@@ -8,11 +8,14 @@ interface State {
 	name?: string
 	vkId?: string
 	refLink?: string
+	isLoaderShowed: boolean
 }
 
 export const enum Mutation {
 	Login = 'login',
-	Logout = 'logout'
+	Logout = 'logout',
+	ShowLoader = 'showLoader',
+	HideLoader = 'hideLoader'
 }
 
 export const injectionKey: InjectionKey<Store<State>> = Symbol()
@@ -20,6 +23,7 @@ export const injectionKey: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
 	state: () => ({
 		key: getCookie('userid'),
+		isLoaderShowed: true,
 	}),
 	getters: {
 		isLoggedIn: state => !!state.key,
@@ -34,6 +38,12 @@ export const store = createStore<State>({
 		[Mutation.Logout](state) {
 			state.key = undefined
 			deleteCookie('userid')
+		},
+		[Mutation.ShowLoader](state) {
+			state.isLoaderShowed = true
+		},
+		[Mutation.HideLoader](state) {
+			state.isLoaderShowed = false
 		},
 	},
 })

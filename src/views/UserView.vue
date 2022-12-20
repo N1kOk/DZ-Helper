@@ -111,12 +111,15 @@ import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
-import { copyRefLink, get, isLoaderShowed } from '@/utils/helpers'
+import { copyRefLink, get } from '@/utils/helpers'
 import Swal from 'sweetalert2'
 import { onMounted } from 'vue'
+import { Mutation, useStore } from '@/store'
+
+const store = useStore()
 
 onMounted(() => {
-	isLoaderShowed.value = true
+	store.commit(Mutation.ShowLoader)
 })
 
 async function buyVip() {
@@ -156,7 +159,7 @@ async function buyVip() {
 	}
 }
 
-function declination(number: number, titles: string[]) {
+function getDeclination(number: number, titles: string[]) {
 	const cases = [2, 0, 1, 1, 1, 2]
 	return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]]
 }

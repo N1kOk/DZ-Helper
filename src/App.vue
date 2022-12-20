@@ -19,6 +19,8 @@ import { useStore } from '@/store'
 import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
 import { nextTick, watch } from 'vue'
 import router from '@/router'
+import { get, Toast } from '@/utils/helpers'
+import Swal from 'sweetalert2'
 
 const store = useStore()
 
@@ -35,23 +37,41 @@ watch(() => store.getters.isLoggedIn,
 		}
 	})
 
-router.beforeEach((to) => {
+router.beforeEach((to, _, next) => {
 	if (to.meta.isRequiredAuth && !store.getters.isLoggedIn) {
-		return {
+		return next({
 			path: '/login',
 			query: { redirect: to.fullPath },
-		}
+		})
 	}
 
-	return correctUrl(to)
+	return next()
 })
 
-router.afterEach((to) => {
-	nextTick(() => {
-		const { keywords, description, title } = to.meta
-		document.title = title
-		document.head.querySelector('meta[name="keywords"]')!.setAttribute('content', keywords || '')
-		document.head.querySelector('meta[name="description"]')!.setAttribute('content', description || '')
-	}).then()
+router.beforeEach(correctUrl)
+
+router.afterEach(async (to) => {
+	await nextTick()
+
+	const { keywords, description, title } = to.meta
+	document.title = title
+	document.head.querySelector('meta[name="keywords"]')!.setAttribute('content', keywords || '')
+	document.head.querySelector('meta[name="description"]')!.setAttribute('content', description || '')
+
+	await fetchBonus()
 })
+
+async function fetchBonus() {
+	const res = await get('/db/users/bonus/bonus.php')
+
+	if (res.startsWith('left')) {
+		setTimeout(fetchBonus, 60 * 1e3)
+
+		const minutes = parseInt(res.split(':')[1])
+		await Toast.fire({ icon: 'info', text: `До бонуса ${minutes} мин.` })
+	} else if (res.startsWith('ok')) {
+		const bonus = parseInt(res.split(':')[1])
+		await Swal.fire('Бонус', `Вам начислен ежедневный бонус в размере ${bonus} коинов!`, 'success')
+	}
+}
 </script>

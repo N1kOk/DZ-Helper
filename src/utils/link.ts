@@ -1,4 +1,4 @@
-import type { RouteLocationNormalized } from 'vue-router'
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import { isDev } from '@/utils/helpers'
 
 export enum Link {
@@ -26,12 +26,14 @@ export const getCorrectUrl = (url: string) =>
 		: url
 
 let lastUrl = ''
-export function correctUrl(to: RouteLocationNormalized) {
+export function correctUrl(to: RouteLocationNormalized, _: RouteLocationNormalized, next: NavigationGuardNext) {
 	if (lastUrl !== to.fullPath) {
 		lastUrl = to.fullPath
 		
 		for (const link of Object.values(Link))
 			if (link === to.path)
-				return { path: getCorrectUrl(link), query: to.query }
+				return next({ path: getCorrectUrl(link), query: to.query })
 	}
+	
+	return next()
 }
