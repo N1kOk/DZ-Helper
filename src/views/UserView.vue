@@ -5,15 +5,15 @@
 		<div class="flex max-lg:flex-col gap-8">
 			<div class="flex flex-col flex-1 gap-8">
 				<AppCard class="gap-2">
-					<p class="text-xl font-bold truncate">Username</p>
+					<p class="text-xl font-bold truncate">{{ store.state.name }}</p>
 					<p>
 						Привязано к:
 						<AppLink
-							to="https://vk.com/id123456789"
+							:to="`https://vk.com/id${store.state.vkId}`"
 							target="_blank"
 							color="aqua"
 						>
-							vk.com/id123456789
+							vk.com/id{{ store.state.vkId }}
 						</AppLink>
 					</p>
 					<AppButton
@@ -27,7 +27,7 @@
 				<AppCard class="gap-2">
 					<p class="text-xl font-bold truncate">
 						Баланс коинов:
-						<span class="text-yellow" :class="blur">0</span>
+						<span class="text-yellow" :class="blur">{{ info.coins }}</span>
 					</p>
 					<div class="w-max mx-auto space-y-1">
 						<AppButton
@@ -50,12 +50,12 @@
 						<div class="text-xs">
 							<p>
 								Слов в Веб-Грамотей:
-								<span :class="blur">0</span>
+								<span :class="blur">{{ info.coins }}</span>
 							</p>
 							<p>или</p>
 							<p>
 								Заданий Учи.ру/UzTest/ЯКласс:
-								<span :class="blur">0</span>
+								<span :class="blur">{{ Math.floor(info.coins / 10) }}</span>
 							</p>
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 				<div>
 					<p>
 						Ваша реф. ссылка:
-						<AppLink @click="copyRefLink" color="aqua">vk.cc/reflink</AppLink>
+						<AppLink @click="copyRefLink" color="aqua">{{ store.state.refLink }}</AppLink>
 					</p>
 					<p>
 						Подробнее можно узнать
@@ -77,25 +77,29 @@
 				<p class="text-xl font-bold">Статистика</p>
 				<p>
 					Заработано коинов:
-					<span class="text-yellow" :class="blur">0</span>
+					<span class="text-yellow" :class="blur">{{ info.earnedCoins }}</span>
 				</p>
 				<div>
 					<p>Приглашенные участники:</p>
-					<div
-						class="w-[80%] max-w-[325px] h-[8rem] mx-auto overflow-y-auto border-2 border-blue bg-black/5">
-						<div class="mx-auto text-sm text-left w-max">
-							<p v-for="i in 10">
-								<span>{{ i }}. </span>
-								<AppLink
-									to="https://vk.com/id123456789"
-									target="_blank"
-									class="no-underline"
-									color="aqua"
-								>
-									vk.com/id123456789
-								</AppLink>
-							</p>
-							<!--TODO Null refs-->
+					<div class="w-[80%] max-w-[325px] h-[8rem] mx-auto overflow-y-auto
+						border-2 border-blue bg-black/5">
+						<div class="flex flex-col max-w-full h-full mx-auto text-sm text-left w-max">
+							<div v-if="info.refs.length">
+								<p v-for="(id, i) in info.refs">
+									<span>{{ i + 1 }}. </span>
+									<AppLink
+										:to="`https://vk.com/id${id}`"
+										target="_blank"
+										class="no-underline"
+										color="aqua"
+									>
+										vk.com/id{{ id }}
+									</AppLink>
+								</p>
+							</div>
+							<div v-else class="m-auto text-center">
+								Приглашенные участники не найдены
+							</div>
 						</div>
 					</div>
 				</div>
@@ -111,10 +115,11 @@ import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
-import { copyRefLink, get } from '@/utils/helpers'
+import { copyRefLink, get, getAsJSON } from '@/utils/helpers'
 import Swal from 'sweetalert2'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { Mutation, useStore } from '@/store'
+import { getLocalStorageItem, setLocalStorageItem } from '@/utils/localStorage'
 
 const store = useStore()
 
@@ -122,8 +127,35 @@ const blur = computed(() => ({
 	'blur': store.state.isLoaderShowed,
 }))
 
-onMounted(() => {
+interface Info {
+	coins: number
+	earnedCoins: number
+	accountType: number
+	refs: number[]
+}
+
+const info = ref<Info>({
+	coins: getLocalStorageItem('coins') || 0,
+	earnedCoins: getLocalStorageItem('earnedCoins') || 0,
+	accountType: getLocalStorageItem('accountType') || 0,
+	refs: getLocalStorageItem('refs') || [],
+})
+
+onMounted(async () => {
 	store.commit(Mutation.ShowLoader)
+
+	try {
+		info.value = await getAsJSON<Info>('/api/getInfo.php')
+
+		setLocalStorageItem('coins', info.value.coins)
+		setLocalStorageItem('earnedCoins', info.value.earnedCoins)
+		setLocalStorageItem('accountType', info.value.accountType)
+		setLocalStorageItem('refs', info.value.refs)
+	} catch (error) {
+		await Swal.fire('Ошибка', 'Не удалось получить данные с сервера', 'error')
+	}
+
+	store.commit(Mutation.HideLoader)
 })
 
 async function buyVip() {

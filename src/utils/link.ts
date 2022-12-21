@@ -5,7 +5,7 @@ export enum Link {
 	Index = '/',
 	Ref = '/ref.html',
 	Buy = '/buy.html',
-	User = '/user.html', // TODO Rename to /user.php
+	User = '/user.html', // TODO Redirect from /user.php to /user.html
 	Stock = '/stock.html',
 	Success = '/success.html',
 	Login = '/login.html',

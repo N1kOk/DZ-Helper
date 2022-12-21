@@ -15,14 +15,21 @@ import { RouterView } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import TheLoader from '@/components/TheLoader.vue'
-import { useStore } from '@/store'
+import { Mutation, useStore } from '@/store'
 import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
-import { nextTick, watch } from 'vue'
+import { nextTick, onMounted, watch } from 'vue'
 import router from '@/router'
 import { get, Toast } from '@/utils/helpers'
 import Swal from 'sweetalert2'
 
 const store = useStore()
+
+onMounted(() => {
+	if (location.hash === '#auth=success') {
+		store.commit(Mutation.Login)
+		Toast.fire({ icon: 'success', text: 'Авторизация прошла успешно' })
+	}
+})
 
 watch(() => store.getters.isLoggedIn,
 	() => {

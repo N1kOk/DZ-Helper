@@ -1,14 +1,14 @@
 import { setCookie } from '@/utils/cookie'
-import { Mutation, store } from '@/store'
 import { parseQuery } from 'vue-router'
+import { Mutation, store } from '@/store'
+import { Link } from '@/utils/link'
 
 export const login = () => {
 	const { redirect } = <{ redirect?: string }>parseQuery(location.search)
 	
-	setCookie('userid', 123) // TODO
 	setCookie('cururl', redirect || location.href)
-	store.commit(Mutation.Login)
-	// location.assign(Link.LoginVK) // TODO
+	
+	location.assign(Link.LoginVK)
 }
 
 export const logout = () => {

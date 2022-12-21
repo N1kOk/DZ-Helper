@@ -7,7 +7,7 @@
 		</p>
 		<div class="space-y-2">
 			<p>Ваша реферальная ссылка:</p>
-			<AppLink @click="copyRefLink" color="aqua">https://vk.cc/reflink</AppLink>
+			<AppLink @click="copyRefLink" color="aqua">{{ store.state.name }}</AppLink>
 			<p class="text-xs">(Чтобы скопировать, нажмите на ссылку)</p>
 		</div>
 		<div>
@@ -34,4 +34,8 @@
 import AppSection from '@/components/AppSection.vue'
 import AppLink from '@/components/AppLink.vue'
 import { Link } from '@/utils/link'
-import { copyRefLink } from '@/utils/helpers'</script>
+import { copyRefLink } from '@/utils/helpers'
+import { useStore } from '@/store'
+
+const store = useStore()
+</script>

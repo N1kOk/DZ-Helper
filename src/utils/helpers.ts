@@ -4,8 +4,21 @@ export const isDev = location.hostname === '127.0.0.1'
 
 export const baseUrl = isDev ? 'https://dz-helper.ru' : ''
 
+async function _get<T extends string = string>(url: string) {
+	const res = await fetch(baseUrl + url)
+	
+	if (!res.ok)
+		throw new Error(res.status + ' ' + res.statusText)
+	
+	return res
+}
+
 export async function get<T extends string = string>(url: string) {
-	return (<T>(await (await fetch(baseUrl + url)).text()).trim())
+	return (<T>(await (await _get(url)).text()).trim())
+}
+
+export async function getAsJSON<T extends object>(url: string) {
+	return (<T>(await (await _get(url)).json()))
 }
 
 export async function copyRefLink(event: MouseEvent) {
