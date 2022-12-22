@@ -46,7 +46,7 @@ export const store = createStore<State>({
 		},
 		[Mutation.Logout](state) {
 			state.key = undefined
-			deleteCookie('userid')
+			setLocalStorageItem('key', '')
 		},
 		[Mutation.ShowLoader](state) {
 			state.isLoaderShowed = true

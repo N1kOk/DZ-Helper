@@ -7,7 +7,7 @@
 		</p>
 		<div class="space-y-2">
 			<p>Ваша реферальная ссылка:</p>
-			<AppLink @click="copyRefLink" color="aqua">{{ store.state.name }}</AppLink>
+			<AppLink @click="copyRefLink" color="aqua">{{ store.state.refLink }}</AppLink>
 			<p class="text-xs">(Чтобы скопировать, нажмите на ссылку)</p>
 		</div>
 		<div>

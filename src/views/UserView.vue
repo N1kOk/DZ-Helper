@@ -19,9 +19,12 @@
 					<AppButton
 						@click="buyVip"
 						class="mx-auto"
+						:class="{'pointer-events-none': getLocalStorageItem('accountType')}"
 						:color="ButtonColor.Yellow"
 					>
-						VIP-Аккаунт
+						<IconCheck class="w-6" :class="{'hidden': !getLocalStorageItem('accountType')}"/>
+						<span>VIP-Аккаунт</span>
+						<IconCheck class="w-6" :class="{'hidden': !getLocalStorageItem('accountType')}"/>
 					</AppButton>
 				</AppCard>
 				<AppCard class="gap-2">
@@ -120,6 +123,7 @@ import Swal from 'sweetalert2'
 import { computed, onMounted, ref } from 'vue'
 import { Mutation, useStore } from '@/store'
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils/localStorage'
+import IconCheck from '@/components/icons/IconCheck.vue'
 
 const store = useStore()
 

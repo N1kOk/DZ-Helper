@@ -21,6 +21,7 @@ import { nextTick, onMounted, watch } from 'vue'
 import router from '@/router'
 import { get, Toast } from '@/utils/helpers'
 import Swal from 'sweetalert2'
+import { getLocalStorageItem } from '@/utils/localStorage'
 
 const store = useStore()
 
@@ -47,7 +48,7 @@ watch(() => store.getters.isLoggedIn,
 router.beforeEach((to, _, next) => {
 	if (to.meta.isRequiredAuth && !store.getters.isLoggedIn) {
 		return next({
-			path: '/login',
+			path: Link.Login,
 			query: { redirect: to.fullPath },
 		})
 	}
@@ -65,15 +66,14 @@ router.afterEach(async (to) => {
 	document.head.querySelector('meta[name="keywords"]')!.setAttribute('content', keywords || '')
 	document.head.querySelector('meta[name="description"]')!.setAttribute('content', description || '')
 
-	await fetchBonus()
+	if (getLocalStorageItem('accountType'))
+		await fetchBonus()
 })
 
 async function fetchBonus() {
 	const res = await get('/db/users/bonus/bonus.php')
 
 	if (res.startsWith('left')) {
-		setTimeout(fetchBonus, 60 * 1e3)
-
 		const minutes = parseInt(res.split(':')[1])
 		await Toast.fire({ icon: 'info', text: `До бонуса ${minutes} мин.` })
 	} else if (res.startsWith('ok')) {
