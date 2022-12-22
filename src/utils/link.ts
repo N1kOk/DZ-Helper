@@ -5,11 +5,11 @@ export enum Link {
 	Index = '/',
 	Ref = '/ref.html',
 	Buy = '/buy.html',
-	User = '/user.html', // TODO Redirect from /user.php to /user.html
+	User = '/user.html',
 	Stock = '/stock.html',
 	Success = '/success.html',
 	Login = '/login.html',
-	LoginVK = '/vklogin.php', // TODO Component
+	LoginVK = '/vklogin.php',
 	Privacy = '/privacy.html',
 	Download = '/download.html',
 	Resh = '/resh.html',
