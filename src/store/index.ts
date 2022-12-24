@@ -1,7 +1,7 @@
 import type { InjectionKey } from 'vue'
 import type { Store } from 'vuex'
 import { createStore, useStore as _useStore } from 'vuex'
-import { deleteCookie, getCookie } from '@/utils/cookie'
+import { getCookie } from '@/utils/cookie'
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils/localStorage'
 
 interface State {
