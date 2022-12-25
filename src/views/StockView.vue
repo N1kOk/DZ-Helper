@@ -244,7 +244,7 @@ import AppSection from '@/components/AppSection.vue'
 import AppButton from '@/components/AppButton.vue'
 import AppLink from '@/components/AppLink.vue'
 import { useStore } from '@/store'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2-neutral'
 import { get } from '@/utils/helpers'
 
 const repostPostId = 154070

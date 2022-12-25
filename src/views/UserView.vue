@@ -119,11 +119,11 @@ import AppLink from '@/components/AppLink.vue'
 import { ButtonColor } from '@/utils/button'
 import { Link } from '@/utils/link'
 import { copyRefLink, get, getAsJSON } from '@/utils/helpers'
-import Swal from 'sweetalert2'
 import { computed, onMounted, ref } from 'vue'
 import { Mutation, useStore } from '@/store'
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils/localStorage'
 import IconCheck from '@/components/icons/IconCheck.vue'
+import Swal from 'sweetalert2-neutral'
 
 const store = useStore()
 

@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2-neutral'
 
 export const isDev = location.hostname === '127.0.0.1'
 

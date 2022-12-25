@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "sweetalert2": "^11.6.15",
+    "sweetalert2-neutral": "^11.6.15-neutral",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vuex": "^4.0.2"

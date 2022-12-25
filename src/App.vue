@@ -21,9 +21,9 @@ import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
 import { nextTick, onMounted, watch } from 'vue'
 import router from '@/router'
 import { get, Toast } from '@/utils/helpers'
-import Swal from 'sweetalert2'
 import { getLocalStorageItem } from '@/utils/localStorage'
 import TheSnowflakes from '@/components/winter-theme/TheSnowflakes.vue'
+import Swal from 'sweetalert2-neutral'
 
 const store = useStore()
 
