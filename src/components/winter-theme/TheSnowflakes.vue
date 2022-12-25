@@ -86,7 +86,6 @@ const snowflakes = []
 onMounted(() => {
 	for (let i = 0; i < 15; i++)
 		snowflakes.push(new Snowflake())
-
 })
 </script>
 
@@ -96,8 +95,9 @@ onMounted(() => {
 	display: block;
 	left: 0;
 	top: 0;
-	width: .1rem;
-	height: .1rem;
+	width: .15rem;
+	height: .15rem;
+	opacity: .8;
 	border-radius: 9999px;
 	background: white;
 	transition-property: transform;
