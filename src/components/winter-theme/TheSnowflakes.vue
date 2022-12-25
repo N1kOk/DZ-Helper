@@ -17,13 +17,25 @@ class Snowflake {
 		this.element.className = 'snowflake'
 		document.querySelector('#snowflakes')!.append(this.element)
 
+		this.respawn(true)
 		this.update = this.update.bind(this)
-		this.setPosition({
-			x: Math.random() * window.innerWidth,
-			y: Math.random() * window.innerHeight * -1,
-		})
 
 		requestAnimationFrame(this.update)
+	}
+
+	public respawn(isRandom = false) {
+		this.updateTimespan = Date.now()
+		this.element.style.display = 'none'
+		this.setPositionY(-10)
+
+		if (isRandom) {
+			this.setPosition({
+				x: Math.random() * window.innerWidth,
+				y: Math.random() * window.innerHeight * -1,
+			})
+		}
+
+		setTimeout(() => this.element.style.display = 'block', 150)
 	}
 
 	public getPosition() {
@@ -45,11 +57,14 @@ class Snowflake {
 
 	private update() {
 		const delta = Date.now() - this.updateTimespan
-		console.log(delta)
-		if (delta < 100) {
-			requestAnimationFrame(this.update)
-			return
+
+		if (delta > 1000) {
+			this.respawn(true)
+			return requestAnimationFrame(this.update)
 		}
+
+		if (delta < 100)
+			return requestAnimationFrame(this.update)
 
 		const pos = this.getPosition()
 
@@ -58,11 +73,8 @@ class Snowflake {
 
 		this.deg += delta / 16 * 0.1
 
-		if (pos.y > window.innerHeight + 10) {
-			this.element.style.display = 'none'
-			this.setPositionY(-10)
-			setTimeout(() => this.element.style.display = 'block', 150)
-		}
+		if (pos.y > window.innerHeight + 10)
+			this.respawn()
 
 		this.updateTimespan = Date.now()
 		requestAnimationFrame(this.update)
@@ -74,6 +86,7 @@ const snowflakes = []
 onMounted(() => {
 	for (let i = 0; i < 15; i++)
 		snowflakes.push(new Snowflake())
+
 })
 </script>
 
