@@ -5,19 +5,23 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
-type Vector = { x: number, y: number }
+type Point = { x: number, y: number }
 
 class Snowflake {
-	private elem = document.createElement('span')
-	private position: Vector = { x: 0, y: 0 }
-	private updateTimespan = 0
+	private element = document.createElement('span')
+	private position: Point = { x: 0, y: 0 }
+	private updateTimespan = Date.now()
+	private deg = Math.random() * 10
 
 	constructor() {
-		this.elem.className = 'snowflake'
-		document.querySelector('#snowflakes')!.append(this.elem)
+		this.element.className = 'snowflake'
+		document.querySelector('#snowflakes')!.append(this.element)
 
-		this.setPosition({ x: Math.random() * 1500, y: 0 })
 		this.update = this.update.bind(this)
+		this.setPosition({
+			x: Math.random() * window.innerWidth,
+			y: Math.random() * window.innerHeight * -1,
+		})
 
 		requestAnimationFrame(this.update)
 	}
@@ -26,40 +30,49 @@ class Snowflake {
 		return this.position
 	}
 
-	public setPosition(pos: Vector) {
-		this.setPositionX(pos.x)
-		this.setPositionY(pos.y)
+	public setPosition(pos: Point) {
+		this.position = pos
+		this.element.style.transform = `translate(${pos.x}px, ${pos.y}px)`
 	}
 
 	public setPositionX(value: number) {
-		this.position.x = value
-		this.elem.style.left = `${value}px`
+		this.setPosition({ x: value, y: this.position.y })
 	}
 
 	public setPositionY(value: number) {
-		this.position.y = value
-		this.elem.style.top = `${value}px`
+		this.setPosition({ x: this.position.x, y: value })
 	}
 
 	private update() {
-		// TODO timespan
+		const delta = Date.now() - this.updateTimespan
+		console.log(delta)
+		if (delta < 100) {
+			requestAnimationFrame(this.update)
+			return
+		}
 
 		const pos = this.getPosition()
-		this.setPositionY(pos.y + 1)
 
+		this.setPositionX(pos.x + Math.cos(this.deg / 5) * 3)
+		this.setPositionY(pos.y + delta / 16)
+
+		this.deg += delta / 16 * 0.1
+
+		if (pos.y > window.innerHeight + 10) {
+			this.element.style.display = 'none'
+			this.setPositionY(-10)
+			setTimeout(() => this.element.style.display = 'block', 150)
+		}
+
+		this.updateTimespan = Date.now()
 		requestAnimationFrame(this.update)
 	}
-
-	// private getNextPosition(): Vector {
-	// 	const pos = this.getPosition()
-	// 	return { ...this.getPosition(),  }
-	// }
 }
 
 const snowflakes = []
 
 onMounted(() => {
-	for (let i = 0; i < 30; i++)
+	for (let i = 0; i < 15; i++)
 		snowflakes.push(new Snowflake())
 })
 </script>
@@ -68,12 +81,15 @@ onMounted(() => {
 .snowflake {
 	position: absolute;
 	display: block;
-	width: 3px;
-	height: 3px;
+	left: 0;
+	top: 0;
+	width: .1rem;
+	height: .1rem;
 	border-radius: 9999px;
 	background: white;
-	transition-property: left, top;
-	transition-duration: 1s;
+	transition-property: transform;
+	transition-duration: .15s;
 	transition-timing-function: linear;
+	will-change: transform;
 }
 </style>
