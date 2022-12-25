@@ -1,7 +1,7 @@
 <template>
 	<div class="flex flex-col min-h-screen overflow-hidden">
 		<TheHeader/>
-		<main class="flex flex-col flex-1 bg-[#2684b1]">
+		<main class="ice-background flex flex-col flex-1 bg-[#2684b1]">
 			<RouterView/>
 		</main>
 		<TheFooter/>
@@ -84,3 +84,9 @@ async function fetchBonus() {
 	}
 }
 </script>
+
+<style scoped>
+.ice-background {
+	background-image: url("/assets/images/ice.png");
+}
+</style>

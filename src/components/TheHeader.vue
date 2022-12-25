@@ -84,7 +84,7 @@ const store = useStore()
 
 	&__nav {
 		@apply
-		w-full my-auto flex justify-between bg-inherit
+		w-full my-auto flex justify-between
 		lg:space-x-4;
 	}
 
@@ -96,7 +96,7 @@ const store = useStore()
 
 	&__links {
 		@apply
-		max-lg:absolute left-0 top-16 w-full max-lg:py-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium bg-inherit
+		max-lg:absolute left-0 top-16 w-full max-lg:py-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium lg:bg-transparent bg-blue
 		transition-transform will-change-transform max-lg:[transform:scaleY(0)] origin-top
 
 		lg:w-max lg:my-auto lg:justify-end lg:space-x-4;
