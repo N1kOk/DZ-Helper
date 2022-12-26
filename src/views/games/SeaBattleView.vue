@@ -9,15 +9,14 @@
 				<div
 					v-for="cell in cells"
 					class="cell"
-					:class="{'pointer-events-none': !cell.isEmpty}"
+					:class="{'pointer-events-none': !cell.isEmpty, 'bg-white': !cell.isEmpty && !cell.isWinner}"
 					@click="copy(cell.cellName)"
 				>
 					<div class="m-auto">
 						<span v-if="cell.isEmpty">{{ cell.cellName }}</span>
-						<span v-else-if="!cell.isWinner">X</span>
 						<img
-							v-else
-							class="w-full h-full object-contain rounded-full"
+							v-else-if="cell.isWinner"
+							class="max-w-[calc((100vw_-_2rem)/30_-_.5rem)] max-h-[calc((100vw_-_2rem)/30_-_.5rem)] object-contain rounded-full"
 							:src="cell.playerImage"
 							alt="player image"
 						>
@@ -31,6 +30,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { copyToClipboard, getAsJSON, Toast } from '@/utils/helpers'
+import { useStore } from '@/store'
+
+const store = useStore()
 
 interface Cell {
 	cellName: string
@@ -43,7 +45,8 @@ interface Cell {
 const cells = ref<Cell[]>([])
 
 onMounted(async () => {
-	//               буква,  цифра,   id человека, был ли выбит приз, ссылка на фотографию
+	store.state.isLoaderShowed = true
+
 	type Response = [string, number, number | null, boolean, string | null][]
 	const res = await getAsJSON<Response>('https://dev.explrms.space/get_field')
 	cells.value = res.map((value): Cell => ({
@@ -54,12 +57,16 @@ onMounted(async () => {
 		playerImage: value[4],
 	}))
 
-	console.log(cells.value)
+	store.state.isLoaderShowed = false
 })
 
 async function copy(text: string) {
-	await copyToClipboard(text)
-	await Toast.fire('Скопировано!', '', 'success')
+	try {
+		await copyToClipboard(text)
+		await Toast.fire('Скопировано!', '', 'success')
+	} catch (error) {
+		await Toast.fire('Не удалось скопировать текст', '', 'error')
+	}
 }
 </script>
 
