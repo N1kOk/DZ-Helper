@@ -5,7 +5,10 @@ export const isDev = location.hostname === '127.0.0.1'
 export const baseUrl = isDev ? 'https://dz-helper.ru' : ''
 
 async function _get<T extends string = string>(url: string) {
-	const res = await fetch(baseUrl + url)
+	if (!url.includes('://'))
+		url = baseUrl + url
+	
+	const res = await fetch(url)
 	
 	if (!res.ok)
 		throw new Error(res.status + ' ' + res.statusText)

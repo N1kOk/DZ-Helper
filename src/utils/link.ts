@@ -12,6 +12,7 @@ export enum Link {
 	LoginVK = '/vklogin.php',
 	Privacy = '/privacy.html',
 	Download = '/download.html',
+	SeaBattle = '/sea-battle.html',
 	Resh = '/resh.html',
 	Uchiru = '/uchiru.html',
 	UzTest = '/uztest.html',

@@ -12,6 +12,13 @@ export const routes: readonly RouteRecordRaw[] = [
 		},
 	},
 	{
+		path: getCorrectUrl(Link.SeaBattle),
+		component: () => import('@/views/games/SeaBattleView.vue'),
+		meta: {
+			title: 'Морской бой',
+		},
+	},
+	{
 		path: getCorrectUrl(Link.Ref),
 		component: () => import('@/views/RefView.vue'),
 		meta: {
