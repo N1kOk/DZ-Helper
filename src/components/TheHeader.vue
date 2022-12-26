@@ -72,8 +72,17 @@ import IconUser from '@/components/icons/IconUser.vue'
 import { Link } from '@/utils/link'
 import { useStore } from '@/store'
 import { login, logout } from '@/utils/auth'
+import { onMounted } from 'vue'
 
 const store = useStore()
+
+onMounted(() => {
+	document.querySelectorAll('.header__links a').forEach(value =>
+		value.addEventListener('click', () =>
+			document.querySelector<HTMLLabelElement>('.header__burger')!.click(),
+		),
+	)
+})
 </script>
 
 <style scoped lang="scss">
