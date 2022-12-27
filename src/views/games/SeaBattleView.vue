@@ -69,13 +69,6 @@ async function copy(text: string) {
 </script>
 
 <style scoped>
-.player-image {
-	@apply
-	min-w-[40px] min-h-[40px]
-	max-w-[calc((100vw_-_2rem)/30_-_.5rem)] max-h-[calc((100vw_-_2rem)/30_-_.5rem)]
-	object-contain rounded-full
-}
-
 .game-grid {
 	@apply
 	grid
@@ -86,5 +79,9 @@ async function copy(text: string) {
 
 .cell {
 	@apply flex justify-center items-center border cursor-pointer transition-colors hover:bg-black/25
+}
+
+.player-image {
+	@apply min-w-full min-h-full p-1 object-contain rounded-full
 }
 </style>
