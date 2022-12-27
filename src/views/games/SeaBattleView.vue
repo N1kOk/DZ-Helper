@@ -12,15 +12,13 @@
 					:class="{ 'bg-white pointer-events-none': !cell.isEmpty }"
 					@click="copy(cell.cellName)"
 				>
-					<div class="m-auto">
-						<span v-if="cell.isEmpty">{{ cell.cellName }}</span>
-						<img
-							v-else-if="cell.isWinner"
-							class="player-image"
-							:src="cell.playerImage"
-							alt="player image"
-						>
-					</div>
+					<span v-if="cell.isEmpty">{{ cell.cellName }}</span>
+					<img
+						v-else-if="cell.isWinner"
+						class="player-image"
+						:src="cell.playerImage"
+						alt="player image"
+					>
 				</div>
 			</div>
 		</div>
@@ -87,6 +85,6 @@ async function copy(text: string) {
 }
 
 .cell {
-	@apply flex border cursor-pointer transition-colors hover:bg-black/25
+	@apply flex justify-center items-center border cursor-pointer transition-colors hover:bg-black/25
 }
 </style>
