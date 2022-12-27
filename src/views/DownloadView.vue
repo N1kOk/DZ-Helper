@@ -22,6 +22,7 @@
 
 					<AppButton
 						:to="card.links.setup"
+						@click="card.clickHandler"
 						target="_blank"
 						rel="nofollow"
 						color="green"
@@ -71,12 +72,14 @@ import IconMath from '@/components/icons/IconMath.vue'
 import IconSum from '@/components/icons/IconSum.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppCard from '@/components/AppCard.vue'
+import Swal from 'sweetalert2-neutral'
 
 interface Card {
 	icon: Component
 	title: string
+	clickHandler?: () => void
 	links: {
-		setup: string
+		setup?: string
 		instruction: string
 	}
 }
@@ -109,8 +112,11 @@ const cards: Card[] = [
 	{
 		icon: IconLike,
 		title: 'РЭШ+',
+		clickHandler() {
+			Swal.fire('Ошибка', 'Расширение РЭШ+ временно отключено', 'error')
+		},
 		links: {
-			setup: 'https://chrome.google.com/webstore/detail/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%8B-%D0%BD%D0%B0-%D1%80%D1%8D%D1%88-%D1%80%D1%8D%D1%88%20/dfojlcjcmgijemlijicemapllecfnmpk?hl=ru',
+			// setup: 'https://chrome.google.com/webstore/detail/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%8B-%D0%BD%D0%B0-%D1%80%D1%8D%D1%88-%D1%80%D1%8D%D1%88%20/dfojlcjcmgijemlijicemapllecfnmpk?hl=ru',
 			instruction: 'https://vk.com/@dzhelper1-reshplus',
 		},
 	},
