@@ -51,10 +51,12 @@ function fallbackCopyTextToClipboard(text: string) {
 	document.body.removeChild(textArea)
 }
 
-export function copyToClipboard(text: string) {
-	if (!navigator.clipboard)
-		return fallbackCopyTextToClipboard(text)
-	return navigator.clipboard.writeText(text)
+export async function copyToClipboard(text: string) {
+	try {
+		await navigator.clipboard.writeText(text)
+	} catch (error) {
+		fallbackCopyTextToClipboard(text)
+	}
 }
 
 export function debounce(this: any, fn: (...args: any[]) => any, ms = 1000) {
