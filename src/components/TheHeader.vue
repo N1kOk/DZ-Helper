@@ -105,10 +105,11 @@ onMounted(() => {
 
 	&__links {
 		@apply
-		max-lg:absolute left-0 top-16 w-full max-lg:py-5 flex max-lg:flex-col items-center flex-wrap text-sm font-medium lg:bg-transparent bg-blue
+		max-lg:absolute left-0 top-16 w-full max-lg:py-5 flex max-lg:flex-col items-center flex-wrap
+		text-lg font-medium bg-blue
 		transition-transform will-change-transform max-lg:[transform:scaleY(0)] origin-top
 
-		lg:w-max lg:my-auto lg:justify-end lg:space-x-4;
+		lg:w-max lg:my-auto lg:justify-end lg:space-x-4 lg:text-sm lg:bg-transparent;
 	}
 
 	&__extensions {

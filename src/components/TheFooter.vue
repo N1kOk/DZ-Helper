@@ -1,5 +1,5 @@
 <template>
-	<footer class="relative flex min-h-[70px] p-1 text-sm font-light leading-5 bg-blue shadow-2xl shadow-black z-50">
+	<footer class="relative flex min-h-[70px] p-1 text-sm font-light leading-5 bg-blue shadow-2xl shadow-black">
 		<div class="m-auto lg:[&>br]:hidden max-lg:[&>span]:hidden">
 			© Copyright 2023 DZ-Helper
 			<br>
