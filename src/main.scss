@@ -19,18 +19,14 @@ body {
     overflow-y: scroll !important;
 }
 
+.container {
+    @apply max-w-[95%] lg:max-w-[70%] mx-auto;
+}
+
 h1 {
     @apply text-4xl font-bold;
 }
 
-input {
-    @apply inline-block text-black border border-black/50 rounded-full text-center text-sm font-light focus:outline-2 outline-blue;
-}
-
 hr {
     opacity: 0.5;
-}
-
-.container {
-    @apply max-w-[95%] lg:max-w-[70%] mx-auto;
 }
