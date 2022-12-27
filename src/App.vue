@@ -30,7 +30,7 @@ const store = useStore()
 onMounted(() => {
 	if (location.hash === '#auth=success') {
 		store.commit(Mutation.Login)
-		Toast.fire({ icon: 'success', text: 'Авторизация прошла успешно' })
+		Toast.fire({ icon: 'success', title: 'Авторизация прошла успешно' })
 	}
 })
 
@@ -77,7 +77,7 @@ async function fetchBonus() {
 
 	if (res.startsWith('left')) {
 		const minutes = parseInt(res.split(':')[1])
-		await Toast.fire({ icon: 'info', text: `До бонуса ${minutes} мин.` })
+		await Toast.fire({ icon: 'info', title: `До бонуса ${minutes} мин.` })
 	} else if (res.startsWith('ok')) {
 		const bonus = parseInt(res.split(':')[1])
 		await Swal.fire('Бонус', `Вам начислен ежедневный бонус в размере ${bonus} коинов!`, 'success')
