@@ -9,14 +9,14 @@
 				<div
 					v-for="cell in cells"
 					class="cell"
-					:class="{'pointer-events-none': !cell.isEmpty, 'bg-white': !cell.isEmpty && !cell.isWinner}"
+					:class="{ 'bg-white pointer-events-none': !cell.isEmpty }"
 					@click="copy(cell.cellName)"
 				>
 					<div class="m-auto">
 						<span v-if="cell.isEmpty">{{ cell.cellName }}</span>
 						<img
 							v-else-if="cell.isWinner"
-							class="max-w-[calc((100vw_-_2rem)/30_-_.5rem)] max-h-[calc((100vw_-_2rem)/30_-_.5rem)] object-contain rounded-full"
+							class="player-image"
 							:src="cell.playerImage"
 							alt="player image"
 						>
@@ -71,6 +71,13 @@ async function copy(text: string) {
 </script>
 
 <style scoped>
+.player-image {
+	@apply
+	min-w-[40px] min-h-[40px]
+	max-w-[calc((100vw_-_2rem)/30_-_.5rem)] max-h-[calc((100vw_-_2rem)/30_-_.5rem)]
+	object-contain rounded-full
+}
+
 .game-grid {
 	@apply
 	grid
