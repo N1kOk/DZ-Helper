@@ -54,6 +54,12 @@ export const Toast = Swal.mixin({
 	timerProgressBar: true,
 	timer: 3000,
 	width: 'max-content',
+	showClass: {
+		popup: 'slide-in'
+	},
+	hideClass: {
+		popup: 'slide-out'
+	},
 	didOpen: (toast) => {
 		toast.addEventListener('mouseenter', Swal.stopTimer)
 		toast.addEventListener('mouseleave', Swal.resumeTimer)
