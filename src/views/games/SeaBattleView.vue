@@ -82,6 +82,6 @@ async function copy(text: string) {
 }
 
 .player-image {
-	@apply min-w-full min-h-full p-1 object-contain rounded-full
+	@apply w-full h-full p-1 object-cover rounded-full
 }
 </style>
