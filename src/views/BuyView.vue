@@ -161,9 +161,11 @@ function assign(url: string) {
 
 async function fetchDiscount() {
 	try {
-		const promoDiscount = await getDiscount(info.promoCode)
-		info.promoMessage = `Скидка: ${promoDiscount}%`
+		info.promoDiscount = await getDiscount(info.promoCode)
+		info.promoMessage = `Скидка: ${info.promoDiscount}%`
 	} catch (error) {
+		info.promoDiscount = 0
+
 		if (error instanceof Error)
 			info.promoMessage = error.message
 	}
@@ -181,5 +183,4 @@ async function fetchDiscount() {
 		return discount
 	}
 }
-
 </script>
