@@ -1,9 +1,15 @@
 <template>
-	<div id="snowflakes" class="fixed left-0 top-0 w-screen h-screen z-[99999999] pointer-events-none"/>
+	<div
+		v-if="isSnowflakesShowed"
+		id="snowflakes"
+		class="fixed left-0 top-0 w-screen h-screen z-[99999999] pointer-events-none"
+		:style="styles"
+	/>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { isWinter } from '@/utils/helpers'
 
 type Point = { x: number, y: number }
 
@@ -82,8 +88,12 @@ class Snowflake {
 }
 
 const snowflakes = []
+const isSnowflakesShowed = ref<boolean>(true)
 
 onMounted(() => {
+	if (!isWinter())
+		return isSnowflakesShowed.value = false
+
 	for (let i = 0; i < 15; i++)
 		snowflakes.push(new Snowflake())
 })

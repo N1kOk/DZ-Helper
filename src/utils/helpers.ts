@@ -4,6 +4,11 @@ export const isDev = location.hostname === '127.0.0.1'
 
 export const baseUrl = isDev ? 'https://dz-helper.ru' : ''
 
+export const isWinter = () => {
+	const month = new Date().getMonth()
+	return month < 2 || month === 11
+}
+
 async function _get<T extends string = string>(url: string) {
 	if (!url.includes('://'))
 		url = baseUrl + url

@@ -1,7 +1,7 @@
 <template>
 	<div class="flex flex-col min-h-screen overflow-hidden">
 		<TheHeader/>
-		<main class="ice-background flex flex-col flex-1 bg-[#2684b1]">
+		<main class="flex flex-col flex-1 bg-[#2684b1]" :class="classes">
 			<RouterView/>
 		</main>
 		<TheFooter/>
@@ -20,12 +20,16 @@ import { Mutation, useStore } from '@/store'
 import { correctUrl, getCorrectUrl, Link } from '@/utils/link'
 import { nextTick, onMounted, watch } from 'vue'
 import router from '@/router'
-import { get, Toast } from '@/utils/helpers'
+import { get, isWinter, Toast } from '@/utils/helpers'
 import { getLocalStorageItem } from '@/utils/localStorage'
 import TheSnowflakes from '@/components/winter-theme/TheSnowflakes.vue'
 import Swal from 'sweetalert2-neutral'
 
 const store = useStore()
+
+const classes = {
+	'ice-background': isWinter()
+}
 
 onMounted(() => {
 	if (location.hash === '#auth=success') {
@@ -85,7 +89,7 @@ async function fetchBonus() {
 }
 </script>
 
-<style scoped>
+<style>
 .ice-background {
 	background-image: url("/assets/images/ice.png");
 }
