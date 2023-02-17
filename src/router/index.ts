@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router/routes'
+import { correctUrl } from '@/utils/link'
 
 interface Meta {
 	title: string
@@ -22,5 +23,7 @@ const router = createRouter({
 			return { top: 0 }
 	},
 })
+
+router.beforeEach(correctUrl)
 
 export default router

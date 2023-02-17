@@ -3,7 +3,6 @@
 		v-if="isSnowflakesShowed"
 		id="snowflakes"
 		class="fixed left-0 top-0 w-screen h-screen z-[99999999] pointer-events-none"
-		:style="styles"
 	/>
 </template>
 
