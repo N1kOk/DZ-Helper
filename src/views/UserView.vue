@@ -201,6 +201,7 @@ async function buyVip() {
 </script>
 
 <style scoped lang="css">
+/*noinspection CssUnusedSymbol*/
 .blur {
 	@apply blur-[7px]
 }

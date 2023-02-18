@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 declare module 'sweetalert2-neutral' {
   /**
    * A namespace inside the default function, containing utility function for controlling the currently-displayed popup.

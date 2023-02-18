@@ -51,6 +51,7 @@ function fallbackCopyTextToClipboard(text: string) {
 	textArea.focus()
 	textArea.select()
 	
+	// noinspection ALL
 	document.execCommand('copy')
 	
 	document.body.removeChild(textArea)

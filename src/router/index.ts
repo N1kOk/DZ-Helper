@@ -10,6 +10,7 @@ interface Meta {
 }
 
 declare module 'vue-router' {
+	// noinspection JSUnusedGlobalSymbols
 	interface RouteMeta extends Meta {}
 }
 

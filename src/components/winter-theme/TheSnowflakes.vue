@@ -99,6 +99,7 @@ onMounted(() => {
 </script>
 
 <style>
+/*noinspection ALL*/
 .snowflake {
 	position: absolute;
 	display: block;

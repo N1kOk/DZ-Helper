@@ -1,7 +1,9 @@
+/*noinspection CssUnusedSymbol*/
 .slide-in {
     animation: slideIn .25s ease-out;
 }
 
+/*noinspection CssUnusedSymbol*/
 .slide-out {
     animation: slideOut .25s ease-out;
 }
