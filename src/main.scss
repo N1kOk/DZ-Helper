@@ -12,6 +12,8 @@ html {
     font-size: clamp(16px, calc(1rem + ((1vw - 8px) * 0.6944)), 24px);
     text-align: center;
     color: white;
+
+    @apply bg-[#2684b1];
 }
 
 body {
