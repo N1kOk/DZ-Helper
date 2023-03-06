@@ -2,7 +2,7 @@
 	<header class="header">
 		<nav class="header__nav">
 			<AppLink class="min-w-max flex items-center" :to="Link.Index">
-				<img class="h-9" src="/assets/images/winter-logo.png" alt="DZ-Helper">
+				<img class="h-9" :src="logoUrl" alt="DZ-Helper">
 				<span class="ml-1 text-3xl font-bold whitespace-nowrap">DZ-Helper</span>
 			</AppLink>
 
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 
-				<AppButton class="tracking-[1px]" :to="Link.Download" color="green">
+				<AppButton class="tracking-[1px]" :to="Link.Download" :color="ButtonColor.Green">
 					<IconDownload class="w-4 mr-1"/>
 					<span>Скачать расширения</span>
 				</AppButton>
@@ -72,9 +72,16 @@ import IconUser from '@/components/icons/IconUser.vue'
 import { Link } from '@/utils/link'
 import { useStore } from '@/store'
 import { login, logout } from '@/utils/auth'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { ButtonColor } from '@/utils/button'
+import { isWinter } from '@/utils/helpers'
 
 const store = useStore()
+
+const logoUrl = ref('/assets/images/logo.svg')
+
+if (isWinter())
+	logoUrl.value = '/assets/images/winter-logo.png'
 
 onMounted(() => {
 	document.querySelectorAll('.header__links a').forEach(value =>
