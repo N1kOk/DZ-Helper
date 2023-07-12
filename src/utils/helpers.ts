@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2-neutral'
 
-export const isDev = location.hostname === '127.0.0.1'
+export const isDev = location.hostname !== 'dz-helper.ru'
 
 export const baseUrl = isDev ? 'https://dz-helper.ru' : ''
 
