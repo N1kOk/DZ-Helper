@@ -44,7 +44,7 @@
 						<AppLink class="p-1" :to="Link.Webgramotei">Веб-Грамотей+</AppLink>
 						<AppLink class="p-1" :to="Link.ReshuEGE">РешуОГЭ/ЕГЭ+</AppLink>
 						<AppLink class="p-1" :to="Link.Yaklass">ЯКласс+</AppLink>
-						<AppLink class="p-1" :to="Link.Uchiru">Учи.ру+</AppLink>
+<!--						<AppLink class="p-1" :to="Link.Uchiru">Учи.ру+</AppLink>-->
 						<AppLink class="p-1" :to="Link.UzTest">UzTest+</AppLink>
 						<AppLink class="p-1" :to="Link.Resh">РЭШ+</AppLink>
 					</div>
