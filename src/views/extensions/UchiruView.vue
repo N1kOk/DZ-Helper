@@ -1,7 +1,7 @@
 <template>
 	<ThePageExtension
 		title="Учи.ру"
-		instruction-url="https://vk.com/@dzhelper1-uchiruplus"
+		instruction-url="https://telegra.ph/UchiHelper--Polnaya-instrukciya-07-16"
 		background-style="background:linear-gradient(45deg,rgb(10,165,218),#ff5767)"
 		image-url="/assets/images/uchiru.png"
 	>

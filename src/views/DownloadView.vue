@@ -98,7 +98,7 @@ const cards: Card[] = [
 		title: 'Учи.ру+',
 		links: {
 			setup: 'https://chrome.google.com/webstore/detail/uchihelper/fpdmlanpbgokpkcmkojldkjlajcnajko',
-			instruction: 'https://vk.com/@dzhelper1-uchiruplus',
+			instruction: 'https://telegra.ph/UchiHelper--Polnaya-instrukciya-07-16',
 		},
 	},
 	{
