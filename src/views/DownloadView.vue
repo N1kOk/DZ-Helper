@@ -93,14 +93,14 @@ const cards: Card[] = [
 			instruction: 'https://vk.com/@dzhelper1-wg-stealh',
 		},
 	},
-	// {
-	// 	icon: IconRocket,
-	// 	title: 'Учи.ру+',
-	// 	links: {
-	// 		setup: 'https://chrome.google.com/webstore/detail/uchihelper/fpdmlanpbgokpkcmkojldkjlajcnajko',
-	// 		instruction: 'https://vk.com/@dzhelper1-uchiruplus',
-	// 	},
-	// },
+	{
+		icon: IconRocket,
+		title: 'Учи.ру+',
+		links: {
+			setup: 'https://chrome.google.com/webstore/detail/uchihelper/fpdmlanpbgokpkcmkojldkjlajcnajko',
+			instruction: 'https://vk.com/@dzhelper1-uchiruplus',
+		},
+	},
 	{
 		icon: IconTarget,
 		title: 'ЯКласс+',
