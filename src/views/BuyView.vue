@@ -51,13 +51,13 @@
 				>
 					Оплатить через Lava.ru
 				</AppButton>
-				<AppButton
-					@click="assign(`/api/enot/enot.php?points=${info.coins}&promo=${info.promoCode}`)"
-					:size="ButtonSize.Large"
-					class="min-w-full !border-none !rounded-none"
-				>
-					Оплатить через Enot.io
-				</AppButton>
+<!--				<AppButton-->
+<!--					@click="assign(`/api/enot/enot.php?points=${info.coins}&promo=${info.promoCode}`)"-->
+<!--					:size="ButtonSize.Large"-->
+<!--					class="min-w-full !border-none !rounded-none"-->
+<!--				>-->
+<!--					Оплатить через Enot.io-->
+<!--				</AppButton>-->
 			</div>
 		</AppCard>
 	</AppSection>
