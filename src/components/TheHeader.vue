@@ -1,4 +1,7 @@
 <template>
+  <div class="fixed top-0 left-0 w-full z-50 h-6 text-center bg-black">
+    Наш новый сервис - <a class="link text-aqua" href="https://domashky.net/" target="_blank">Domashky.NET</a>
+  </div>
 	<header class="header">
 		<nav class="header__nav">
 			<AppLink class="min-w-max flex items-center" :to="Link.Index">
@@ -95,7 +98,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .header {
 	@apply
-	fixed w-full min-h-[4rem] px-3 py-1 flex bg-blue shadow-xl z-50
+	fixed top-6 left-0 w-full min-h-[4rem] px-3 py-1 flex flex-col bg-blue shadow-xl z-50
 	lg:px-[50px];
 
 	&__nav {
