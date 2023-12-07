@@ -15,7 +15,7 @@
 				<p>
 					<slot name="fullDescription"/>
 				</p>
-				<p>
+				<p v-if="!props.isDisabled">
 					Инструкцию можно посмотреть
 					<AppLink
 						:to="props.instructionUrl"
@@ -60,11 +60,11 @@
 		</div>
 	</AppSection>
 
-	<AppSection class="max-lg:hidden">
+	<AppSection v-if="!props.isDisabled" class="max-lg:hidden">
 		<h2 class="text-5xl font-bold uppercase">Как начать?</h2>
 	</AppSection>
 
-	<AppSection class="text-xl text-black font-medium bg-white max-lg:hidden">
+	<AppSection v-if="!props.isDisabled" class="text-xl text-black font-medium bg-white max-lg:hidden">
 		<div class="flex flex-wrap justify-evenly gap-4">
 			<div class="flex items-center gap-1">
 				<IconCursor class="h-12 text-gray-300"/>
@@ -81,13 +81,13 @@
 		</div>
 	</AppSection>
 
-	<AppSection>
+	<AppSection v-if="!props.isDisabled">
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-4">
 			<slot name="prices"/>
 		</div>
 	</AppSection>
 
-	<AppSection>
+	<AppSection v-if="!props.isDisabled">
 		<AppCard class="flex flex-col items-center w-full max-w-[30rem] p-8 mx-auto space-y-6">
 			<IconDevices class="w-24"/>
 			<h2 class="text-3xl font-bold">{{ props.title }}</h2>
@@ -144,6 +144,7 @@ interface Props {
 	instructionUrl: string
 	backgroundStyle: string
 	imageUrl: string
+  isDisabled?: boolean
 }
 
 const props = defineProps<Props>()
