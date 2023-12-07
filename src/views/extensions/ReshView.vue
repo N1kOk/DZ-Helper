@@ -1,5 +1,6 @@
 <template>
 	<ThePageExtension
+    is-disabled
 		title="РЭШ"
 		instruction-url="https://vk.com/@dzhelper1-reshplus"
 		background-style="background:linear-gradient(135deg,rgba(215,215,215,1) 0%,rgba(0,113,188,1) 25%,rgba(0,113,188,1) 75%,rgba(215,215,215,1) 100%)"
@@ -10,10 +11,10 @@
 			Забудьте о куче заданий и займитесь тем, что действительно важно
 		</template>
 		<template #fullDescription>
-			Наше расширение найдёт все <b>ответы</b> на задания <b>РЭШ</b> (<b>Российской Электронной
-			Школы</b>), или решит их в реальном времени, если <b>ответа</b> нет в нашей базе.
-			С нашим расширением вы сможете сэкономить время на выполнении скучных, нудных заданий и заняться
-			тем, что действительно важно.
+      Наше расширение для <b>ответов</b> на задания <b>РЭШ</b> больше не поддерживается.
+      <br><br>
+      Но вы можете заказать решение на <a class="link text-aqua" href="https://domashky.net/" target="_blank">Domashky.NET</a>
+      и получить <span class="text-yellow">50 рублей</span> при регистрации (только для первых 100 пользователей)
 		</template>
 		<template #prices>
 			<AppCardPrice
