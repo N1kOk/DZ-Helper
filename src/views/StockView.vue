@@ -22,6 +22,19 @@
 			</component>
 		</div>
 		<hr>
+    <div>
+      <h1>Domashky.NET</h1>
+      <br>
+      <p>Получите 50 рублей за регистрацию на <a class="link text-aqua" href="https://domashky.net/" target="_blank">Domashky.NET</a></p>
+      <br>
+      <p class="max-w-max mx-auto text-left">
+        <span class="text-yellow">+50₽ в Domashky.NET</span>
+      </p>
+      <br>
+      <p>Бонус действует только для новых пользователей</p>
+      <p>Бонус получат только первые 100 человек</p>
+    </div>
+    <hr>
 		<div>
 			<h1>Ежедневный бонус</h1>
 			<br>
